@@ -1,0 +1,58 @@
+{
+  "name": "johnpbloch/wordpress",
+  "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+  "keywords": [
+    "wordpress",
+    "blog",
+    "cms"
+  ],
+  "type": "package",
+  "homepage": "http://wordpress.org/",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "WordPress Community",
+      "homepage": "http://wordpress.org/about/"
+    }
+  ],
+  "support": {
+    "issues": "http://core.trac.wordpress.org/",
+    "forum": "http://wordpress.org/support/",
+    "wiki": "http://codex.wordpress.org/",
+    "irc": "irc://irc.freenode.net/wordpress",
+    "source": "http://core.trac.wordpress.org/browser"
+  },
+  "require": {
+    "php": ">=5.6.20",
+    "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
+    "johnpbloch/wordpress-core": "5.5.3",
+    "platformsh/config-reader": "^2.3",
+    "wp-cli/wp-cli-bundle": "^2.4",
+    "psy/psysh": "^0.10.4"
+  },
+  "scripts": {
+    "copywpconfig": [
+      "cp wp-config.php wordpress/"
+    ],
+    "post-install-cmd": "@copywpconfig"
+  },
+  "extra": {
+    "installer-paths": {
+      "wordpress/wp-content/plugins/{$name}": [
+        "type:wordpress-plugin"
+      ],
+      "wordpress/wp-content/themes/{$name}": [
+        "type:wordpress-theme"
+      ],
+      "wordpress/wp-content/mu-plugins/{$name}": [
+        "type:wordpress-muplugin"
+      ]
+    }
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ]
+}
