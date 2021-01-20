@@ -6,7 +6,7 @@
 </a>
 </p>
 
-This template builds WordPress on Platform.sh using the [`johnbolch/wordpress`](https://github.com/johnpbloch/wordpress) "Composer Fork" of WordPress.  Plugins and themes should be managed with Composer exclusively.  A custom configuration file is provided that runs on Platform.sh to automatically configure the database, so the installer will not ask you for database credentials.  For local-only configuration you can use a `wp-config-local.php` file that gets excluded from Git.
+This template builds WordPress on Platform.sh using the [`johnbloch/wordpress`](https://github.com/johnpbloch/wordpress) "Composer Fork" of WordPress.  Plugins and themes should be managed with Composer exclusively.  A custom configuration file is provided that runs on Platform.sh to automatically configure the database, so the installer will not ask you for database credentials.  For local-only configuration you can use a `wp-config-local.php` file that gets excluded from Git.
 
 WordPress is a blogging and lightweight CMS written in PHP.
 
