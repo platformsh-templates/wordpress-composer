@@ -11,6 +11,11 @@ type: "php:7.4"
 build:
     flavor: composer
 
+dependencies:
+    php:
+        composer/composer: '^2'
+        wp-cli/wp-cli: "^2.2.0"
+
 hooks:
     build: |
         set -e
@@ -58,10 +63,6 @@ web:
 
 # The size of the persistent disk of the application (in MB).
 disk: 2048
-
-dependencies:
-    php:
-        wp-cli/wp-cli: "^2.2.0"
 
 # The mounts that will be performed when the package is deployed.
 mounts:
