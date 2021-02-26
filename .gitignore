@@ -46,3 +46,6 @@
 # Ignore mounts
 wordpress/wp-content/cache
 wordpress/wp-content/uploads
+
+# Ignore post install command artifact locally
+wordpress/wp-config.php
