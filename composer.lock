@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7c51ac7c03e77c5101fa5faee09719fd",
+    "content-hash": "04c970ba311f4ce64066518b3c2433f6",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -4770,24 +4770,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/akismet/"
-        },
-        {
-            "name": "wpackagist-theme/twentynineteen",
-            "version": "1.9",
-            "source": {
-                "type": "svn",
-                "url": "https://themes.svn.wordpress.org/twentynineteen/",
-                "reference": "1.9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentynineteen.1.9.zip"
-            },
-            "require": {
-                "composer/installers": "~1.0"
-            },
-            "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/twentynineteen/"
         },
         {
             "name": "wpackagist-theme/twentytwenty",
