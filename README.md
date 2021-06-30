@@ -1,4 +1,5 @@
 # WordPress (Composer) for Platform.sh
+# trivial change 1
 
 <p align="center">
 <a href="https://console.platform.sh/projects/create-project?template=https://raw.githubusercontent.com/platformsh/template-builder/master/templates/wordpress-composer/.platform.template.yaml&utm_content=wordpress-composer&utm_source=github&utm_medium=button&utm_campaign=deploy_on_platform">
