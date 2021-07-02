@@ -4,5 +4,5 @@
 # to power your Platform.sh project.
 
 db:
-    type: mariadb:10.4
-    disk: 2048
+    type: mysql:10.4
+    disk: 256
