@@ -5,4 +5,4 @@
 
 db:
     type: mysql:10.4
-    disk: 256
+    disk: 1024
