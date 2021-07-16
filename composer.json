@@ -30,7 +30,7 @@
     "wp-cli/wp-cli-bundle": "^2.4",
     "psy/psysh": "^0.10.6",
     "wpackagist-plugin/akismet": "^4.1.10",
-    "wpackagist-plugin/wpforms-lite": "1.6.8",
+    "wpackagist-plugin/wpforms-lite": "^1.6.8",
     "wpackagist-theme/twentytwentyone": "^1.3",
     "wpackagist-theme/astra": "^3.6.4"
   },
