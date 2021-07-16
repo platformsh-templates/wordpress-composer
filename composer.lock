@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "13b5422796571fcf5b2575584ee8b2e1",
+    "content-hash": "9c261312fddc5d009176ac715444f128",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -625,16 +625,16 @@
         },
         {
             "name": "gettext/gettext",
-            "version": "v4.8.4",
+            "version": "v4.8.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "58bc0f7f37e78efb0f9758f93d4a0f669f0f84a1"
+                "reference": "ef2e312dff383fc0e4cd62dd39042e1157f137d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/58bc0f7f37e78efb0f9758f93d4a0f669f0f84a1",
-                "reference": "58bc0f7f37e78efb0f9758f93d4a0f669f0f84a1",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/ef2e312dff383fc0e4cd62dd39042e1157f137d4",
+                "reference": "ef2e312dff383fc0e4cd62dd39042e1157f137d4",
                 "shasum": ""
             },
             "require": {
@@ -642,7 +642,7 @@
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "illuminate/view": "*",
+                "illuminate/view": "^5.0.x-dev",
                 "phpunit/phpunit": "^4.8|^5.7|^6.5",
                 "squizlabs/php_codesniffer": "^3.0",
                 "symfony/yaml": "~2",
@@ -686,7 +686,7 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/oscarotero/Gettext/issues",
-                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.4"
+                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.5"
             },
             "funding": [
                 {
@@ -702,27 +702,26 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2021-03-10T19:35:49+00:00"
+            "time": "2021-07-13T16:45:53+00:00"
         },
         {
             "name": "gettext/languages",
-            "version": "2.6.0",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Languages.git",
-                "reference": "38ea0482f649e0802e475f0ed19fa993bcb7a618"
+                "reference": "4ad818b6341e177b7c508ec4c37e18932a7b788a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Languages/zipball/38ea0482f649e0802e475f0ed19fa993bcb7a618",
-                "reference": "38ea0482f649e0802e475f0ed19fa993bcb7a618",
+                "url": "https://api.github.com/repos/php-gettext/Languages/zipball/4ad818b6341e177b7c508ec4c37e18932a7b788a",
+                "reference": "4ad818b6341e177b7c508ec4c37e18932a7b788a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^2.16.0",
                 "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.5 || ^8.4"
             },
             "bin": [
@@ -765,9 +764,19 @@
             ],
             "support": {
                 "issues": "https://github.com/php-gettext/Languages/issues",
-                "source": "https://github.com/php-gettext/Languages/tree/2.6.0"
+                "source": "https://github.com/php-gettext/Languages/tree/2.8.1"
             },
-            "time": "2019-11-13T10:30:21+00:00"
+            "funding": [
+                {
+                    "url": "https://paypal.me/mlocati",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/mlocati",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-07-14T15:03:58+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core",
@@ -943,16 +952,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.13.0",
+            "version": "v1.13.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "db38b1524f5bda921cbda2385e440c2bb71d18b4"
+                "reference": "ad912d4cf6ac682974058b6d49df4c2bf93d424d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/db38b1524f5bda921cbda2385e440c2bb71d18b4",
-                "reference": "db38b1524f5bda921cbda2385e440c2bb71d18b4",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/ad912d4cf6ac682974058b6d49df4c2bf93d424d",
+                "reference": "ad912d4cf6ac682974058b6d49df4c2bf93d424d",
                 "shasum": ""
             },
             "require": {
@@ -964,7 +973,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13.0-dev"
+                    "dev-master": "1.13.2-dev"
                 }
             },
             "autoload": {
@@ -986,9 +995,9 @@
             "description": "Peast is PHP library that generates AST for JavaScript code",
             "support": {
                 "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.13.0"
+                "source": "https://github.com/mck89/peast/tree/v1.13.2"
             },
-            "time": "2021-05-22T16:06:09+00:00"
+            "time": "2021-07-14T09:31:25+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -4773,15 +4782,15 @@
         },
         {
             "name": "wpackagist-plugin/wpforms-lite",
-            "version": "1.6.7.3",
+            "version": "1.6.8",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wpforms-lite/",
-                "reference": "tags/1.6.7.3"
+                "reference": "tags/1.6.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wpforms-lite.1.6.7.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/wpforms-lite.1.6.8.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -4791,15 +4800,15 @@
         },
         {
             "name": "wpackagist-theme/astra",
-            "version": "3.6.2",
+            "version": "3.6.4",
             "source": {
                 "type": "svn",
                 "url": "https://themes.svn.wordpress.org/astra/",
-                "reference": "3.6.2"
+                "reference": "3.6.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/astra.3.6.2.zip"
+                "url": "https://downloads.wordpress.org/theme/astra.3.6.4.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
