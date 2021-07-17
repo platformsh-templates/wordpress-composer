@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e4a271a29e1e8c9ae4c9b2634d4c9c1",
+    "content-hash": "3efe3d6abb2f24604bb88af48ba6adbc",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -4815,6 +4815,24 @@
             },
             "type": "wordpress-theme",
             "homepage": "https://wordpress.org/themes/astra/"
+        },
+        {
+            "name": "wpackagist-theme/twentytwentyone",
+            "version": "1.3",
+            "source": {
+                "type": "svn",
+                "url": "https://themes.svn.wordpress.org/twentytwentyone/",
+                "reference": "1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/twentytwentyone.1.3.zip"
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-theme",
+            "homepage": "https://wordpress.org/themes/twentytwentyone/"
         }
     ],
     "packages-dev": [],
