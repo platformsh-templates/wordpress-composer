@@ -31,7 +31,7 @@
     "psy/psysh": "^0.10.6",
     "wpackagist-plugin/akismet": "^4.1.10",
     "wpackagist-plugin/wpforms-lite": "^1.6.8.1",
-    "wpackagist-theme/astra": "^3.6.7"
+    "wpackagist-theme/astra": "^3.6.8"
   },
   "scripts": {
     "subdirComposer": [

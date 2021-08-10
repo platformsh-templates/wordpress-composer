@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b5ec235bcb07d1c68adbedec23fdfaf",
+    "content-hash": "3c8b2d0e72a5723196c9946d8b8d0731",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -561,21 +561,21 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "2.0.1",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "964adcdd3a28bf9ed5d9ac6450064e0d71ed7496"
+                "reference": "84674dd3a7575ba617f5a76d7e9e29a7d3891339"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/964adcdd3a28bf9ed5d9ac6450064e0d71ed7496",
-                "reference": "964adcdd3a28bf9ed5d9ac6450064e0d71ed7496",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/84674dd3a7575ba617f5a76d7e9e29a7d3891339",
+                "reference": "84674dd3a7575ba617f5a76d7e9e29a7d3891339",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.3.2 || ^7.0 || ^8.0",
-                "psr/log": "^1.0"
+                "psr/log": "^1 || ^2 || ^3"
             },
             "require-dev": {
                 "phpstan/phpstan": "^0.12.55",
@@ -605,7 +605,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/xdebug-handler/issues",
-                "source": "https://github.com/composer/xdebug-handler/tree/2.0.1"
+                "source": "https://github.com/composer/xdebug-handler/tree/2.0.2"
             },
             "funding": [
                 {
@@ -621,7 +621,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-05T19:37:51+00:00"
+            "time": "2021-07-31T17:03:58+00:00"
         },
         {
             "name": "gettext/gettext",
@@ -3021,16 +3021,16 @@
         },
         {
             "name": "wp-cli/db-command",
-            "version": "v2.0.14",
+            "version": "v2.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/db-command.git",
-                "reference": "6034921c7696865946ec0986f06b911c8a56ad3a"
+                "reference": "4a2c43bd75569a3961dd9af63949596227ca90ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/db-command/zipball/6034921c7696865946ec0986f06b911c8a56ad3a",
-                "reference": "6034921c7696865946ec0986f06b911c8a56ad3a",
+                "url": "https://api.github.com/repos/wp-cli/db-command/zipball/4a2c43bd75569a3961dd9af63949596227ca90ce",
+                "reference": "4a2c43bd75569a3961dd9af63949596227ca90ce",
                 "shasum": ""
             },
             "require": {
@@ -3089,9 +3089,9 @@
             "homepage": "https://github.com/wp-cli/db-command",
             "support": {
                 "issues": "https://github.com/wp-cli/db-command/issues",
-                "source": "https://github.com/wp-cli/db-command/tree/v2.0.14"
+                "source": "https://github.com/wp-cli/db-command/tree/v2.0.15"
             },
-            "time": "2021-07-26T13:56:24+00:00"
+            "time": "2021-08-06T13:42:22+00:00"
         },
         {
             "name": "wp-cli/embed-command",
@@ -4807,15 +4807,15 @@
         },
         {
             "name": "wpackagist-theme/astra",
-            "version": "3.6.7",
+            "version": "3.6.8",
             "source": {
                 "type": "svn",
                 "url": "https://themes.svn.wordpress.org/astra/",
-                "reference": "3.6.7"
+                "reference": "3.6.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/astra.3.6.7.zip"
+                "url": "https://downloads.wordpress.org/theme/astra.3.6.8.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
