@@ -7,10 +7,7 @@ name: app
 # The runtime the application uses.
 type: "php:7.4"
 
-# Configuration of the build of the application.
-build:
-    flavor: composer
-
+# Indicate that we want to use composer2, (leave out if you want composer1)
 dependencies:
     php:
         composer/composer: '^2'
