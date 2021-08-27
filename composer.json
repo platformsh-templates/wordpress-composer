@@ -29,9 +29,9 @@
     "platformsh/config-reader": "^2.4",
     "wp-cli/wp-cli-bundle": "^2.4",
     "psy/psysh": "^0.10.6",
-    "wpackagist-plugin/akismet": "^4.1.10",
-    "wpackagist-plugin/wpforms-lite": "^1.6.8.1",
-    "wpackagist-theme/astra": "^3.6.8"
+    "wpackagist-plugin/akismet": "^4.1.11",
+    "wpackagist-plugin/wpforms-lite": "^1.6.9",
+    "wpackagist-theme/astra": "^3.6.5"
   },
   "scripts": {
     "subdirComposer": [

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3c8b2d0e72a5723196c9946d8b8d0731",
+    "content-hash": "83acc3d93a2b21093717a705ed168133",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -84,16 +84,16 @@
         },
         {
             "name": "composer/composer",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/composer.git",
-                "reference": "ac679902e9f66b85a8f9d8c1c88180f609a8745d"
+                "reference": "e5cac5f9d2354d08b67f1d21c664ae70d748c603"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/composer/zipball/ac679902e9f66b85a8f9d8c1c88180f609a8745d",
-                "reference": "ac679902e9f66b85a8f9d8c1c88180f609a8745d",
+                "url": "https://api.github.com/repos/composer/composer/zipball/e5cac5f9d2354d08b67f1d21c664ae70d748c603",
+                "reference": "e5cac5f9d2354d08b67f1d21c664ae70d748c603",
                 "shasum": ""
             },
             "require": {
@@ -160,9 +160,9 @@
                 "package"
             ],
             "support": {
-                "irc": "irc://irc.freenode.org/composer",
+                "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.1.5"
+                "source": "https://github.com/composer/composer/tree/2.1.6"
             },
             "funding": [
                 {
@@ -178,7 +178,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-07-23T08:35:47+00:00"
+            "time": "2021-08-19T15:11:08+00:00"
         },
         {
             "name": "composer/installers",
@@ -952,16 +952,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.13.5",
+            "version": "v1.13.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "4f89ad98e3402b851beb81ad1925e325adaa2124"
+                "reference": "67566e6d594ffb70057fee7adceac9300998cc95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/4f89ad98e3402b851beb81ad1925e325adaa2124",
-                "reference": "4f89ad98e3402b851beb81ad1925e325adaa2124",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/67566e6d594ffb70057fee7adceac9300998cc95",
+                "reference": "67566e6d594ffb70057fee7adceac9300998cc95",
                 "shasum": ""
             },
             "require": {
@@ -973,7 +973,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13.5-dev"
+                    "dev-master": "1.13.6-dev"
                 }
             },
             "autoload": {
@@ -995,9 +995,9 @@
             "description": "Peast is PHP library that generates AST for JavaScript code",
             "support": {
                 "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.13.5"
+                "source": "https://github.com/mck89/peast/tree/v1.13.6"
             },
-            "time": "2021-07-28T17:14:56+00:00"
+            "time": "2021-08-23T10:30:32+00:00"
         },
         {
             "name": "mustache/mustache",
@@ -1541,16 +1541,16 @@
         },
         {
             "name": "seld/phar-utils",
-            "version": "1.1.1",
+            "version": "1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/phar-utils.git",
-                "reference": "8674b1d84ffb47cc59a101f5d5a3b61e87d23796"
+                "reference": "749042a2315705d2dfbbc59234dd9ceb22bf3ff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/8674b1d84ffb47cc59a101f5d5a3b61e87d23796",
-                "reference": "8674b1d84ffb47cc59a101f5d5a3b61e87d23796",
+                "url": "https://api.github.com/repos/Seldaek/phar-utils/zipball/749042a2315705d2dfbbc59234dd9ceb22bf3ff0",
+                "reference": "749042a2315705d2dfbbc59234dd9ceb22bf3ff0",
                 "shasum": ""
             },
             "require": {
@@ -1583,9 +1583,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/phar-utils/issues",
-                "source": "https://github.com/Seldaek/phar-utils/tree/master"
+                "source": "https://github.com/Seldaek/phar-utils/tree/1.1.2"
             },
-            "time": "2020-07-07T18:42:57+00:00"
+            "time": "2021-08-19T21:01:38+00:00"
         },
         {
             "name": "symfony/console",
@@ -3021,16 +3021,16 @@
         },
         {
             "name": "wp-cli/db-command",
-            "version": "v2.0.15",
+            "version": "v2.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/db-command.git",
-                "reference": "4a2c43bd75569a3961dd9af63949596227ca90ce"
+                "reference": "17e3ce14d31410f8df73f69552a6308a733277bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/db-command/zipball/4a2c43bd75569a3961dd9af63949596227ca90ce",
-                "reference": "4a2c43bd75569a3961dd9af63949596227ca90ce",
+                "url": "https://api.github.com/repos/wp-cli/db-command/zipball/17e3ce14d31410f8df73f69552a6308a733277bc",
+                "reference": "17e3ce14d31410f8df73f69552a6308a733277bc",
                 "shasum": ""
             },
             "require": {
@@ -3089,9 +3089,9 @@
             "homepage": "https://github.com/wp-cli/db-command",
             "support": {
                 "issues": "https://github.com/wp-cli/db-command/issues",
-                "source": "https://github.com/wp-cli/db-command/tree/v2.0.15"
+                "source": "https://github.com/wp-cli/db-command/tree/v2.0.16"
             },
-            "time": "2021-08-06T13:42:22+00:00"
+            "time": "2021-08-12T15:21:06+00:00"
         },
         {
             "name": "wp-cli/embed-command",
@@ -4771,15 +4771,15 @@
         },
         {
             "name": "wpackagist-plugin/akismet",
-            "version": "4.1.10",
+            "version": "4.1.11",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/akismet/",
-                "reference": "tags/4.1.10"
+                "reference": "tags/4.1.11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/akismet.4.1.10.zip"
+                "url": "https://downloads.wordpress.org/plugin/akismet.4.1.11.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
@@ -4789,15 +4789,15 @@
         },
         {
             "name": "wpackagist-plugin/wpforms-lite",
-            "version": "1.6.8.1",
+            "version": "1.6.9",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/wpforms-lite/",
-                "reference": "tags/1.6.8.1"
+                "reference": "tags/1.6.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wpforms-lite.1.6.8.1.zip"
+                "url": "https://downloads.wordpress.org/plugin/wpforms-lite.1.6.9.zip"
             },
             "require": {
                 "composer/installers": "~1.0"
