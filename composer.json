@@ -23,7 +23,7 @@
     "source": "http://core.trac.wordpress.org/browser"
   },
   "require": {
-    "php": ">=5.6.20",
+    "php": ">=8.0",
     "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
     "johnpbloch/wordpress-core": "^5.8.2",
     "platformsh/config-reader": "^2.4",
