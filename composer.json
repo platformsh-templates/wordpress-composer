@@ -25,15 +25,23 @@
   "require": {
     "php": ">=5.6.20",
     "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
-    "johnpbloch/wordpress-core": "^5.6.2",
+    "johnpbloch/wordpress-core": "^5.8.2",
     "platformsh/config-reader": "^2.4",
-    "wp-cli/wp-cli-bundle": "^2.4",
-    "psy/psysh": "^0.10.6",
-    "wpackagist-plugin/akismet": "^4.1",
-    "wpackagist-theme/twentynineteen": "^1.9",
-    "wpackagist-theme/twentytwentyone": "^1.1",
-    "wpackagist-theme/twentytwenty": "^1.6"
+    "wp-cli/wp-cli-bundle": "^2.5",
+    "psy/psysh": "^0.11.0",
+    "wpackagist-plugin/akismet": "^4.2",
+    "wpackagist-theme/twentynineteen": "^2.1",
+    "wpackagist-theme/twentytwentyone": "^1.4",
+    "wpackagist-theme/twentytwenty": "^1.8"
   },
+  "config": {
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
   "scripts": {
     "subdirComposer": [
       "cp wp-config.php wordpress/ && rm -rf wordpress/wp-content/wp-content"
@@ -52,11 +60,5 @@
         "type:wordpress-muplugin"
       ]
     }
-  },
-  "repositories": [
-    {
-      "type": "composer",
-      "url": "https://wpackagist.org"
-    }
-  ]
+  }
 }
