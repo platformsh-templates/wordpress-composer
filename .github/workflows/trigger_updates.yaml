@@ -1,0 +1,27 @@
+name: "trigger source operation update"
+on:
+    schedule:
+        # Runs every 5th minute (see https://crontab.guru)
+        - cron: '*/5 * * * *'
+        branches:
+            - 'pfg-update'
+env:
+    PSH_PROJID: ${{ secrets.PSH_PROJID }}
+    PLATFORMSH_CLI_TOKEN: ${{ secrets.PSH_TOKEN }}
+jobs:
+    build:
+        name: Trigger Source Operation
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - name: "envs?"
+              run: |
+                  printenv
+#            - name: "Install PSH CLI"
+#              run: |
+#                  curl -sS https://platform.sh/cli/installer | php
+#            - name: "Set remote platform project"
+#              run: |
+#                  platform p:set-remote "${PSH_PROJID}"
+#            - name: "Run the full source operation"
+#              run: |
