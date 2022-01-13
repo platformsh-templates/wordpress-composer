@@ -33,6 +33,14 @@
     "wpackagist-plugin/wpforms-lite": "^1.7.2",
     "wpackagist-theme/astra": "^3.7.6"
   },
+  "config": {
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    }
+  ],
   "scripts": {
     "subdirComposer": [
       "cp wp-config.php wordpress/ && rm -rf wordpress/wp-content/wp-content"
