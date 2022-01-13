@@ -14,7 +14,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
               with:
-                ref: 'pfg-updates'
+                ref: 'pfg-update'
             - name: "envs?"
               run: |
                   printenv
