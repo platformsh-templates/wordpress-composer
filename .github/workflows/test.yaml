@@ -1,0 +1,15 @@
+name: "testing status check"
+on:
+    pull_request:
+        branches:
+            - master
+
+jobs:
+    build:
+        name: "still testing status check"
+        runs-on: ubuntu-latest
+        steps:
+            -   uses: actions/checkout@v2
+            -   name: "envs?"
+                run: |
+                    printenv
