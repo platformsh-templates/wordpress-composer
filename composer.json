@@ -31,8 +31,8 @@
     "psy/psysh": "^0.11.1",
     "wpackagist-plugin/akismet": "^4.2",
     "wpackagist-theme/twentytwentytwo": "^1.0",
-    "wpackagist-theme/twentytwenty": "^1.9",
-    "wpackagist-theme/twentytwentyone": "^1.5"
+    "wpackagist-theme/twentytwentyone": "^1.5",
+    "wpackagist-theme/twentytwenty": "^1.9"
   },
   "config": {
   },
