@@ -13,6 +13,7 @@ jobs:
   test-pr-env:
     name: TestPrEnvironment
     runs-on: ubuntu-latest
+    if: ${{ github.repository_owner == 'platformsh-templates' }}
     steps:
       - name: 'Wait for psh and get target url'
         id: get-target-url
