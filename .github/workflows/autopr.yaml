@@ -7,7 +7,6 @@ on:
 
 env:
   PLATFORMSH_CLI_TOKEN: ${{ secrets.TEMPLATES_CLI_TOKEN }}
-  GITHUB_TOKEN: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
 
 jobs:
   create-auto-pr:
@@ -19,12 +18,12 @@ jobs:
         id: prepautopr
         uses: platformsh/prep-for-autopr@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
 
       - name: 'Create & merge PR'
         id: create-merge-pr
         uses: platformsh/create-autopr@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
           trigger-source: 'auto push'
           default-branch: ${{ steps.prepautopr.outputs.default-branch }}
