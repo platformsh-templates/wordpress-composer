@@ -16,13 +16,13 @@ jobs:
     steps:
       - name: 'Prep the repo for autoPR'
         id: prepautopr
-        uses: platformsh/prep-for-autopr@main
+        uses: platformsh/gha-prep-for-autopr@main
         with:
           github-token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
 
       - name: 'Create & merge PR'
         id: create-merge-pr
-        uses: platformsh/create-autopr@main
+        uses: platformsh/gha-create-autopr@main
         with:
           github-token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
           trigger-source: 'auto push'
