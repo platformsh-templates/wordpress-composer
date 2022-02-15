@@ -73,8 +73,10 @@ mounts:
         source: local
         source_path: "uploads"
 
+
 source:
-    operations:
-        auto-update:
-            command: |
-                curl -fsS https://raw.githubusercontent.com/gilzow/source-operations/main/setup.sh | { bash /dev/fd/3 sop-autoupdate; } 3<&0
+  operations:
+    auto-update:
+      command: |
+        curl -fsS https://raw.githubusercontent.com/platformsh/source-operations/main/setup.sh | { bash /dev/fd/3 sop-autoupdate; } 3<&0
+    
