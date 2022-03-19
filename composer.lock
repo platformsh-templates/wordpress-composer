@@ -183,16 +183,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v2.0.1",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8"
+                "reference": "75e5ef05436c90ac565a48176cc7465991908352"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8",
-                "reference": "a241e78aaeb09781f5f5b92ac01ffd13ab43e5e8",
+                "url": "https://api.github.com/repos/composer/installers/zipball/75e5ef05436c90ac565a48176cc7465991908352",
+                "reference": "75e5ef05436c90ac565a48176cc7465991908352",
                 "shasum": ""
             },
             "require": {
@@ -212,7 +212,8 @@
                 "class": "Composer\\Installers\\Plugin",
                 "branch-alias": {
                     "dev-main": "2.x-dev"
-                }
+                },
+                "plugin-modifies-install-path": true
             },
             "autoload": {
                 "psr-4": {
@@ -306,7 +307,7 @@
             ],
             "support": {
                 "issues": "https://github.com/composer/installers/issues",
-                "source": "https://github.com/composer/installers/tree/v2.0.1"
+                "source": "https://github.com/composer/installers/tree/v2.1.0"
             },
             "funding": [
                 {
@@ -322,7 +323,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-09-13T08:21:20+00:00"
+            "time": "2022-03-18T12:27:54+00:00"
         },
         {
             "name": "composer/metadata-minifier",
@@ -466,16 +467,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.3.0",
+            "version": "3.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "f79c90ad4e9b41ac4dfc5d77bf398cf61fbd718b"
+                "reference": "5d8e574bb0e69188786b8ef77d43341222a41a71"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/f79c90ad4e9b41ac4dfc5d77bf398cf61fbd718b",
-                "reference": "f79c90ad4e9b41ac4dfc5d77bf398cf61fbd718b",
+                "url": "https://api.github.com/repos/composer/semver/zipball/5d8e574bb0e69188786b8ef77d43341222a41a71",
+                "reference": "5d8e574bb0e69188786b8ef77d43341222a41a71",
                 "shasum": ""
             },
             "require": {
@@ -527,7 +528,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.3.0"
+                "source": "https://github.com/composer/semver/tree/3.3.1"
             },
             "funding": [
                 {
@@ -543,7 +544,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-15T08:35:57+00:00"
+            "time": "2022-03-16T11:22:07+00:00"
         },
         {
             "name": "composer/spdx-licenses",
