@@ -4952,15 +4952,15 @@
         },
         {
             "name": "wpackagist-plugin/akismet",
-            "version": "4.2.3",
+            "version": "4.2.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/akismet/",
-                "reference": "tags/4.2.3"
+                "reference": "tags/4.2.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/akismet.4.2.3.zip"
+                "url": "https://downloads.wordpress.org/plugin/akismet.4.2.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
