@@ -25,16 +25,19 @@
   "require": {
     "php": ">=5.6.20",
     "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
-    "johnpbloch/wordpress-core": "^5.9.3",
+    "johnpbloch/wordpress-core": "^6.0.0",
     "platformsh/config-reader": "^2.4",
     "wp-cli/wp-cli-bundle": "^2.6",
     "psy/psysh": "^0.11.4",
-    "wpackagist-theme/twentytwenty": "^2.0",
+    "wpackagist-plugin/akismet": "^4.2",
     "wpackagist-theme/twentytwentyone": "^1.6",
     "wpackagist-theme/twentytwentytwo": "^1.2",
-    "wpackagist-plugin/akismet": "^4.2"
+    "wpackagist-theme/twentytwenty": "^2.0"
   },
   "config": {
+    "allow-plugins": {
+      "johnpbloch/wordpress-core-installer": true
+    }
   },
   "repositories": [
     {
