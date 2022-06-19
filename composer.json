@@ -29,9 +29,9 @@
     "platformsh/config-reader": "^2.4",
     "wp-cli/wp-cli-bundle": "^2.6",
     "psy/psysh": "^0.11.5",
-    "wpackagist-theme/twentytwentyone": "^1.6",
     "wpackagist-theme/twentytwenty": "^2.0",
     "wpackagist-theme/twentytwentytwo": "^1.2",
+    "wpackagist-theme/twentytwentyone": "^1.6",
     "wpackagist-plugin/akismet": "^4.2"
   },
   "config": {
