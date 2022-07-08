@@ -16,6 +16,13 @@ dependencies:
         composer/composer: '^2'
         wp-cli/wp-cli-bundle: "^2.4.0"
 
+variables:
+  php:
+    session.gc_maxlifetime: '200000'
+    session.cookie_lifetime: '2000000'
+    pcre.backtrack_limit: '200000'
+    pcre.recursion_limit: '200000'
+
 hooks:
     build: |
         set -e
@@ -79,4 +86,4 @@ source:
     auto-update:
       command: |
         curl -fsS https://raw.githubusercontent.com/platformsh/source-operations/main/setup.sh | { bash /dev/fd/3 sop-autoupdate; } 3<&0
-    
+
