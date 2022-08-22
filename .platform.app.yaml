@@ -16,13 +16,6 @@ dependencies:
         composer/composer: '^2'
         wp-cli/wp-cli-bundle: "^2.4.0"
 
-variables:
-  php:
-    session.gc_maxlifetime: '200000'
-    session.cookie_lifetime: '2000000'
-    pcre.backtrack_limit: '200000'
-    pcre.recursion_limit: '200000'
-
 hooks:
     build: |
         set -e
@@ -66,7 +59,12 @@ web:
         "/wp-content/uploads":
             root: "wordpress/wp-content/uploads"
             scripts: false
-            allow: true
+            allow: false
+            rules:
+                # Allow access to common static files.
+                '(?<!\-lock)\.(?i:jpe?g|gif|png|svg|bmp|ico|css|js(?:on)?|eot|ttf|woff|woff2|pdf|docx?|xlsx?|pp[st]x?|psd|odt|key|mp[2-5g]|m4[av]|og[gv]|wav|mov|wm[av]|avi|3g[p2])$':
+                    allow: true
+                    expires: 1w
 
 # The size of the persistent disk of the application (in MB).
 disk: 2048
