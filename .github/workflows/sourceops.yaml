@@ -37,7 +37,7 @@ jobs:
 
           projIDpttrn='\/projects\/([^\/]+)\/integrations'
           if [[ "${integrationURL}" =~ ${projIDpttrn} ]]; then
-               echo "PLATFORMSH_PROJECT_ID=${BASH_REMATCH[1]}" >> $GITHUB_ENV
+               echo "PLATFORM_PROJECT=${BASH_REMATCH[1]}" >> $GITHUB_ENV
                #echo "::set-output name=projectID::${BASH_REMATCH[1]}"
           else
               echo "::error::We were unable to extract the project ID from the integration url of ${integrationURL}"
