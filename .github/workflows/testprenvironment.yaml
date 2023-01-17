@@ -34,7 +34,7 @@ jobs:
 
       - name: 'Visual Regression Testing'
         id: test-environment
-        uses: gilzow/gha-vrt@main
+        uses: gilzow/gha-vrt@feat/import-scenarios
         with:
           baseline_url: ${{ secrets.BASELINE_URL }}
           test_url: ${{ steps.get-target-url.outputs.target_url }}
