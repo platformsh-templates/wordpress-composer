@@ -20,9 +20,9 @@ jobs:
       - name: 'Check for Baseline URL'
         id: check-baseline-url
         run: |
-          baseline=${{ env.BASELINE_URL }}
+          baseline=${{ vars.BASELINE_URL }}
           if [[ -z ${baseline} ]]; then
-            echo "::warning::The url to use for generating baseline images must be set as a repository secret"
+            echo "::warning::The url to use for generating baseline images must be set as a repository variable"
             exit 1;
           fi
 
