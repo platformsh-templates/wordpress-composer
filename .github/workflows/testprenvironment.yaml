@@ -9,7 +9,7 @@ on:
       - master
       - main
 env:
-  BASELINE_URL: ${{ secrets.BASELINE_URL }}
+  BASELINE_URL: ${{ vars.BASELINE_URL }}
   GITHUB_TOKEN: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
 jobs:
   test-pr-env:
@@ -36,7 +36,7 @@ jobs:
         id: test-environment
         uses: gilzow/gha-vrt@feat/import-scenarios
         with:
-          baseline_url: ${{ secrets.BASELINE_URL }}
+          baseline_url: ${{ vars.BASELINE_URL }}
           test_url: ${{ steps.get-target-url.outputs.target_url }}
 
       - name: 'VRT results?'
