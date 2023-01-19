@@ -40,6 +40,21 @@ jobs:
           test_url: ${{ steps.get-target-url.outputs.target_url }}
           report_results: true
 
+      - name: 'Comment on PR'
+        id: 'comment on failed PR'
+        if: ${{ false == steps.test-environment.outputs.results }}
+        uses: actions/github-script@v6
+        with:
+          script: |
+            address="https://github.com/${{ github.repo.owner }}/${{ github.repo.repo }}/actions/runs/${{ github.run_id }}"
+            failMsg="Visual Regression Testing failed. Please view the report artifact at ${address}"
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: failMsg
+            })
+
       - name: 'VRT results?'
         id: vrt-results
         run: |
@@ -47,6 +62,7 @@ jobs:
           echo "::notice::The results from the VRT test is ${vrt_results}"
           if [[ "false" == "${vrt_results}" ]]; then
             echo "::error::Visual Regression Test failed. See attached artifact."
+
             exit 1
           else
             echo "::notice::Visual Regression Test passed. Carry on, my wayward son."
