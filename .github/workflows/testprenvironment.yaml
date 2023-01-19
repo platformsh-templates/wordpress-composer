@@ -44,4 +44,10 @@ jobs:
         run: |
           vrt_results=${{ steps.test-environment.outputs.results }}
           echo "::notice::The results from the VRT test is ${vrt_results}"
+          if [[ "false" == "${vrt_results}" ]]; then
+            echo "::error::Visual Regression Test failed. See attached artifact."
+            exit 1
+          else
+            echo "::notice::Visual Regression Test passed. Carry on, my wayward son."
+          fi
 
