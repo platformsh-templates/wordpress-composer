@@ -46,7 +46,8 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
-            address = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.run_id}`
+            runID = "${{ github.run_id }}"
+            address = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${runID}`
             failMsg = `Visual Regression Testing failed. Please view the report artifact at ${address}`
             github.rest.issues.createComment({
               issue_number: context.issue.number,
