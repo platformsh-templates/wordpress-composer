@@ -38,6 +38,7 @@ jobs:
         with:
           baseline_url: ${{ vars.BASELINE_URL }}
           test_url: ${{ steps.get-target-url.outputs.target_url }}
+          report_results: true
 
       - name: 'VRT results?'
         id: vrt-results
