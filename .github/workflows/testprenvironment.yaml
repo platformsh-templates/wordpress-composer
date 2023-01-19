@@ -42,7 +42,7 @@ jobs:
 
       - name: 'Comment on PR'
         id: comment-on-failed-PR
-        if: ${{ false == steps.test-environment.outputs.results }}
+        if: ${{ "false" == steps.test-environment.outputs.results }}
         uses: actions/github-script@v6
         with:
           script: |
