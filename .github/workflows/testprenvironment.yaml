@@ -22,3 +22,4 @@ jobs:
         uses: gilzow/gha-template-pr-tests@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
+          baseline-url: ${{ vars.BASELINE_URL }}
