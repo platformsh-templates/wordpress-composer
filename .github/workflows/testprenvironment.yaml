@@ -17,54 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.repository_owner == 'platformsh-templates' }}
     steps:
-      - name: 'Check for Baseline URL'
-        id: check-baseline-url
-        run: |
-          baseline=${{ vars.BASELINE_URL }}
-          if [[ -z ${baseline} ]]; then
-            echo "::warning::The url to use for generating baseline images must be set as a repository variable"
-            exit 1;
-          fi
-
-      - name: 'Wait for psh and get target url'
+      - name: 'Run Pull Request Tests'
         id: get-target-url
-        uses: platformsh/gha-retrieve-psh-prenv-url@main
+        uses: gilzow/gha-template-pr-tests@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: 'Visual Regression Testing'
-        id: test-environment
-        uses: gilzow/gha-vrt@feat/import-scenarios
-        with:
-          baseline_url: ${{ vars.BASELINE_URL }}
-          test_url: ${{ steps.get-target-url.outputs.target_url }}
-          report_results: true
-
-      - name: 'Comment on PR'
-        id: comment-on-failed-PR
-        if: ${{ steps.test-environment.outputs.results == 'false' }}
-        uses: actions/github-script@v6
-        with:
-          script: |
-            address = `https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}#artifacts`
-            failMsg = `Visual Regression Testing failed. Please view the report artifact at ${address}`
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: failMsg
-            })
-
-      - name: 'VRT results?'
-        id: vrt-results
-        run: |
-          vrt_results=${{ steps.test-environment.outputs.results }}
-          echo "::notice::The results from the VRT test is ${vrt_results}"
-          if [[ "false" == "${vrt_results}" ]]; then
-            echo "::error::Visual Regression Test failed. See attached artifact."
-
-            exit 1
-          else
-            echo "::notice::Visual Regression Test passed. Carry on, my wayward son."
-          fi
-
