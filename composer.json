@@ -28,7 +28,7 @@
     "johnpbloch/wordpress-core": "^6.1.1",
     "platformsh/config-reader": "^2.4",
     "wp-cli/wp-cli-bundle": "^2.7",
-    "psy/psysh": "^0.11.9",
+    "psy/psysh": "^0.11.11",
     "wpackagist-plugin/akismet": "^5.0",
     "wpackagist-theme/twentytwentyone": "^1.7",
     "wpackagist-theme/twentytwentytwo": "^1.3",
