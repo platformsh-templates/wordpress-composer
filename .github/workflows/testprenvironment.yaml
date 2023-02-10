@@ -21,7 +21,7 @@ jobs:
         id: 'get-proj-id'
         uses: platformsh/gha-retrieve-projectid@main
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
 
       - name: 'Get Production URL'
         id: 'get-prod-url'
