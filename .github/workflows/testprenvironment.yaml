@@ -8,9 +8,7 @@ on:
     branches:
       - master
       - main
-env:
-  # @todo I dont think this is needed anymore
-  GITHUB_TOKEN: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
+
 jobs:
   call-reusable-testpr:
     uses: platformsh-templates/ghrw-templates/.github/workflows/testprenvironment.yaml@main
