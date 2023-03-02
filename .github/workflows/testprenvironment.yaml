@@ -1,4 +1,4 @@
-name: "TestPrEnvironment"
+name: "TestPullRequestEnv"
 on:
   workflow_run:
     workflows: [ "platformsh" ]
