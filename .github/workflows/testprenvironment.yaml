@@ -13,6 +13,6 @@ env:
   GITHUB_TOKEN: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
 jobs:
   call-reusable-testpr:
-    uses: platformsh-templates/ghrw-templates/.github/workflows/testprenvironment.yaml@ec9f682f757f30b40bb1105fa440e013efd632c0
+    uses: platformsh-templates/ghrw-templates/.github/workflows/testprenvironment.yaml@main
     secrets: inherit
 
