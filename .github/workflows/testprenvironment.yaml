@@ -12,6 +12,7 @@ on:
 
 jobs:
   call-reusable-testpr:
+    name: 'TestPREnvironment-RW'
     uses: platformsh-templates/ghrw-templates/.github/workflows/testprenvironment.yaml@main
     secrets: inherit
 
