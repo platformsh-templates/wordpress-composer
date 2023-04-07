@@ -11,8 +11,7 @@ on:
       - main
 
 jobs:
-  call-reusable-testpr:
-    name: 'TestPREnvironment-RW'
+  TestPrEnv-CW:
     uses: platformsh-templates/ghrw-templates/.github/workflows/testprenvironment.yaml@main
     secrets: inherit
 
