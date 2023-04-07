@@ -11,7 +11,7 @@ on:
       - main
 
 jobs:
-  somenameforme:
+  TestPrEnv-CW:
     uses: platformsh-templates/ghrw-templates/.github/workflows/testprenvironment.yaml@main
     secrets: inherit
 
