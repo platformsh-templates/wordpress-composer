@@ -23,11 +23,14 @@ hooks:
         # This allows manually-provided and composer-provided plugins to coexist.
         rsync -a plugins/* wordpress/wp-content/plugins/
     deploy: |
+        # Flushes the object cache which might have changed between current production and newly deployed changes
         wp cache flush
+        # Runs the WordPress database update procedure in case core is being updated with the newly deployed changes
         wp core update-db
+        # Runs all cron events that are due now and may have come due during the build+deploy procedure
         wp cron event run --due-now
 
-# The relationships of the application with services or other applications.
+      # The relationships of the application with services or other applications.
 # The left-hand side is the name of the relationship as it will be exposed
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
