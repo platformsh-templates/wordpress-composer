@@ -7,7 +7,7 @@
 ##                                       YOU CAN SAFELY DELETE THIS FILE                                              ##
 ##                                                                                                                    ##
 ########################################################################################################################
-name: Track and sync tracked files
+name: Run Post PR Acceptance jobs
 on:
   push:
     branches:
@@ -15,6 +15,6 @@ on:
       - master
 
 jobs:
-  run-reusable-tb-sync:
-    uses: platformsh-templates/ghrw-templates/.github/workflows/tb-sync.yaml@main
+  run-post-merge:
+    uses: platformsh-templates/ghrw-templates/.github/workflows/post-pr-acceptance.yaml@main
     secrets: inherit
