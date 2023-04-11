@@ -86,6 +86,7 @@ web:
 disk: 2048
 
 # Mounts define directories that are writable after the build is complete
+# More information: https://docs.platform.sh/create-apps/app-reference.html#mounts
 mounts:
     "wordpress/wp-content/cache":
         source: local
