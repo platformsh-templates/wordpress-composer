@@ -4922,16 +4922,16 @@
         },
         {
             "name": "wp-cli/wp-config-transformer",
-            "version": "v1.3.1",
+            "version": "v1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/wp-config-transformer.git",
-                "reference": "c5b5349b86a3eea6c8a3f401f556f21a717aa80e"
+                "reference": "474bce451d435993a4c300368557ee7637b58e9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/c5b5349b86a3eea6c8a3f401f556f21a717aa80e",
-                "reference": "c5b5349b86a3eea6c8a3f401f556f21a717aa80e",
+                "url": "https://api.github.com/repos/wp-cli/wp-config-transformer/zipball/474bce451d435993a4c300368557ee7637b58e9b",
+                "reference": "474bce451d435993a4c300368557ee7637b58e9b",
                 "shasum": ""
             },
             "require": {
@@ -4960,9 +4960,9 @@
             "homepage": "https://github.com/wp-cli/wp-config-transformer",
             "support": {
                 "issues": "https://github.com/wp-cli/wp-config-transformer/issues",
-                "source": "https://github.com/wp-cli/wp-config-transformer/tree/v1.3.1"
+                "source": "https://github.com/wp-cli/wp-config-transformer/tree/v1.3.2"
             },
-            "time": "2023-01-12T03:32:05+00:00"
+            "time": "2023-04-12T22:59:37+00:00"
         },
         {
             "name": "wpackagist-plugin/akismet",
