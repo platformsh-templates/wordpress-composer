@@ -16,7 +16,7 @@ on:
 
 jobs:
   tb-sync:
-    uses: ./tb-sync.yaml
+    uses: ./.github/workflows/tb-sync.yaml
     secrets: inherit
   last-updated:
     if: ${{ always() }}
