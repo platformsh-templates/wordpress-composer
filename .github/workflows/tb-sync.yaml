@@ -105,7 +105,12 @@ jobs:
               # if the remote branch already exists, then we need to check it out from origin. otherwise, create a new
               # local branch that we'll push up later
               # @todo is there a way to retrieve the remote name instead of assuming it is 'origin'?
-              git checkout -b "${SYNC_BRANCH}" "${remoteBranch:+origin/${SYNC_BRANCH}}"
+              #git checkout -b "${SYNC_BRANCH}""${remoteBranch:+ origin/${SYNC_BRANCH}}"
+              if [[ -z "${remoteBranch}" ]]; then
+                git checkout -b "${SYNC_BRANCH}"
+              else
+                git checkout -b "${SYNC_BRANCH}" "origin/${SYNC_BRANCH}"
+              fi
 
               # go ahead and get the data on the files that were changed in the commit
               prFileData=$(gh api "/repos/${GITHUB_REPOSITORY}/pulls/${{ env.PRNUMBER }}/files")
