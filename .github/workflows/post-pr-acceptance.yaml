@@ -15,6 +15,11 @@ on:
       - master
 
 jobs:
-  run-post-merge:
-    uses: platformsh-templates/ghrw-templates/.github/workflows/post-pr-acceptance.yaml@main
+  tb-sync:
+    uses: ./tb-sync.yaml
+    secrets: inherit
+  last-updated:
+    if: ${{ always() }}
+    needs: [ tb-sync ]
+    uses: platformsh-templates/ghrw-templates/.github/workflows/last-updated.yaml@main
     secrets: inherit
