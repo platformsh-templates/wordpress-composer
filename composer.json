@@ -1,6 +1,6 @@
 {
   "name": "johnpbloch/wordpress",
-  "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+  "description": "Platform.sh implementation of the John Bloch WordPress Composer fork",
   "keywords": [
     "wordpress",
     "blog",
