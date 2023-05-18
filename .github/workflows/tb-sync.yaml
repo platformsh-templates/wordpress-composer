@@ -142,16 +142,30 @@ jobs:
               prTitle="Sync: matching ${GITHUB_REPOSITORY}"
               prBody="Syncing updates for template ${TEMPLATE} made in the latest [pull request](https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA})."
 
-              # Create the corresponding PR.
-              prURL=$(gh pr create --head ${SYNC_BRANCH} --title "${prTitle}" --body "${prBody}")
+              # do we already have an open PR for this branch?
+              # gh pr list -H sync-wordpress-composer --json number | jq -r '.[] | .number'
+              tbPRData=$(gh pr list -H "${SYNC_BRANCH}" --json number,url -R ${{ env.TEMPLATEBUILDER }})
 
-              if [ -z "${prURL}" ]; then
-                echo "::warning::Creating a PR in template builder for the latest changes failed."
-                echo "::debug::Command issued was:"
-                prCommand="pr create --head \"${SYNC_BRANCH}\" --title \"${prTitle}\" --body \"${prBody}\""
-                echo "::debug::${prCommand}"
+              if [[ "${tbPRData}" == "[]" ]]; then
+                # Create the corresponding PR.
+                prURL=$(gh pr create --head ${SYNC_BRANCH} --title "${prTitle}" --body "${prBody}")
+
+                if [ -z "${prURL}" ]; then
+                  echo "::warning::Creating a PR in template builder for the latest changes failed."
+                  echo "::debug::Command issued was:"
+                  prCommand="pr create --head \"${SYNC_BRANCH}\" --title \"${prTitle}\" --body \"${prBody}\""
+                  echo "::debug::${prCommand}"
+                else
+                  echo "::notice::Created a PR in template builder with the latest changes: ${prURL}."
+                fi
               else
-                echo "::notice::Created a PR in template builder with the latest changes: ${prURL}."
+                #this means we already have an open PR
+                echo "::notice::There is already an open pull request for ${SYNC_BRANCH} on ${{ env.TEMPLATEBUILDER }}."
+                tbPR=$(jq -r '.[] | .number' <<< $tbPRData)
+                tbPRUrl=$(jq -r '.[] | .url' <<< $tbPRData)
+                echo "::notice::Please see pull request #${tbPR}: ${tbPRUrl}"
+                # now let's add a comment
+                gh pr comment "${tbPR}" -b "${prBody}" -R ${{ env.TEMPLATEBUILDER }}
               fi
 
               echo "ISSUEMSG=${issueMsg}" >> $GITHUB_OUTPUT
