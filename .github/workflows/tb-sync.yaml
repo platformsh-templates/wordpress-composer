@@ -132,7 +132,7 @@ jobs:
                 else
                   # let's go ahead and build up our issue message
                   issueMsg="${issueMsg}The package management file ${file} was changed. The following is the patch:${NL}```${NL}"
-                  filePatch=$(jq --arg filename "${file}" -r '.[] | select(.filename==$filename) | .patch' <<< ${prFileData})
+                  filePatch=$(jq --arg filename "${file}" '.[] | select(.filename==$filename) | .patch' <<< ${prFileData})
                   issueMsg="${issueMsg}${filePatch}${NL}```${NL}"
                 fi
               done
@@ -161,7 +161,7 @@ jobs:
                   prCommand="pr create --head \"${SYNC_BRANCH}\" --title \"${prTitle}\" --body \"${prBody}\""
                   echo "::debug::${prCommand}"
                 else
-                  echo "::notice::Created a PR in template builder with the latest changes: ${prURL}."
+                  echo "::notice::Created a PR in template builder with the latest changes: ${prURL}"
                 fi
               else
                 #this means we already have an open PR
