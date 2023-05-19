@@ -65,13 +65,7 @@
       ]
     },
 	"template-data": {
-	 	"type": "Starter",
-	  	"runtime": "Php",
-	  	"tags": [
-		  "CMS",
-		  "PHP",
-		  "WordPress"
-		]
+	 	"type": "Starter"
 	}
   }
 }
