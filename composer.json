@@ -63,7 +63,6 @@
       "wordpress/wp-content/mu-plugins/{$name}": [
         "type:wordpress-muplugin"
       ]
-    },
-	"template-class": "Starter"
+    }
   }
 }
