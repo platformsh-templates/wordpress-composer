@@ -164,7 +164,7 @@ jobs:
                     echo "\`\`\`";
                     echo "";
                     echo "Link to the diff above: ";
-			        fileDiffVal=$(echo -n "${file}" | shasum -a 256 | cut -d ' ' -f1);
+                    fileDiffVal=$(echo -n "${file}" | shasum -a 256 | cut -d ' ' -f1);
                     echo $(printf "${prURLpattern}" "${GITHUB_REPOSITORY}" "${{ env.PRNUMBER }}" "${fileDiffVal}");
                     echo "";
                     echo "";
