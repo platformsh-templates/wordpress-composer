@@ -114,13 +114,11 @@ jobs:
         shell: bash
         id: build-tb-pr
         if: steps.determine-if-pr-from-tb.outputs.CONTINUEJOBS == 'yes'
-        env:
-          TEMPLATE: ${{ steps.determine-template-name.outputs.TEMPLATENAME }}
         run: |
           if [ "${{ steps.changed-files.outputs.all_changed_files }}" == "" ];then
               echo "::notice::No relevant files modified. All is well."
           else
-              SYNC_BRANCH=sync-$TEMPLATE
+              SYNC_BRANCH=sync-${{ env.TEMPLATENAME }}
 
               # Clone template-builder, and create a new branch that matches changes in template repo.
               cd ${{ env.TBLOCALPATH }}
@@ -152,59 +150,66 @@ jobs:
                 # is there a way to filter these two files out of the list?
                 if [[ "${file}" != "composer.json" ]] && [[ "${file}" != "packages.json" ]]; then
                   echo "Syncing $file"
-                  cp ../$file templates/$TEMPLATE/files/$file
-                  git add templates/$TEMPLATE/files/$file
-                  msg="${msg} Updates templates/${TEMPLATE}/files/${file}.${NL}"
+                  cp ../$file templates/${{ env.TEMPLATENAME }}/files/$file
+                  git add templates/${{ env.TEMPLATENAME }}/files/$file
+                  msg="${msg} Updates templates/${{ env.TEMPLATENAME }}/files/${file}.${NL}"
                   echo "::notice::The configuration file ${file} has been changed and will be added to a PR for Template Builder."
                 else
                   # let's go ahead and build up our issue message
-                  echo "The package management file ${file} was changed. The following is the patch:" >> issue-message.txt
-                  echo "\`\`\`" >> issue-message.txt
+                  {
+                    echo "The package management file ${file} was changed. The following is the patch:";
+                    echo "\`\`\`";
+                  } >> issue-message.tx
                   (jq --arg filename "${file}" '.[] | select(.filename==$filename) | .patch' <<< ${prFileData}) >> issue-message.txt
-                  echo "\`\`\`" >> issue-message.txt
-                  echo "" >> issue-message.txt
-                  echo "Link to the diff above: " >> issue-message.txt
-                  fileDiffVal=$(echo -n "${file}" | shasum -a 256 | cut -d ' ' -f1)
-                  echo $(printf "${prURLpattern}" "${GITHUB_REPOSITORY}" "${{ env.PRNUMBER }}" "${fileDiffVal}") >> issue-message.txt
-                  echo "" >> issue-message.txt
-                  echo "" >> issue-message.txt
+                  {
+                    echo "\`\`\`";
+                    echo "";
+                    echo "Link to the diff above: ";
+                    fileDiffVal=$(echo -n "${file}" | shasum -a 256 | cut -d ' ' -f1);
+                    echo $(printf "${prURLpattern}" "${GITHUB_REPOSITORY}" "${{ env.PRNUMBER }}" "${fileDiffVal}");
+                    echo "";
+                    echo "";
+                  } >> issue-message.txt
                 fi
               done
 
-              # Commit and push to template-builder.
-              echo "Commit and push"
-              # git add .
-              git commit -m "${msg}"
-              git status
-              git push origin ${SYNC_BRANCH}
+              # do we have anything to actually commit?
+              if [[ $(git diff --name-only --cached) ]]; then
+                # Commit and push to template-builder.
+                echo "Commit and push"
+                # git add .
+                git commit -m "${msg}"
+                git status
+                git push origin ${SYNC_BRANCH}
 
-              prTitle="Sync: matching ${GITHUB_REPOSITORY}"
-              prBody="Syncing updates for template ${TEMPLATE} made in the latest [pull request](https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA})."
+                prTitle="Sync: matching ${GITHUB_REPOSITORY}"
+                prBody="Syncing updates for template ${{ env.TEMPLATEBUILDER }} made in the latest [pull request](https://github.com/${GITHUB_REPOSITORY}/commit/${GITHUB_SHA})."
 
-              # do we already have an open PR for this branch?
-              # gh pr list -H sync-wordpress-composer --json number | jq -r '.[] | .number'
-              tbPRData=$(gh pr list -H "${SYNC_BRANCH}" --json number,url -R ${{ env.TEMPLATEBUILDER }})
+                # do we already have an open PR for this branch?
+                # gh pr list -H sync-wordpress-composer --json number | jq -r '.[] | .number'
+                tbPRData=$(gh pr list -H "${SYNC_BRANCH}" --json number,url -R ${{ env.TEMPLATEBUILDER }})
 
-              if [[ "${tbPRData}" == "[]" ]]; then
-                # Create the corresponding PR.
-                prURL=$(gh pr create --head ${SYNC_BRANCH} --title "${prTitle}" --body "${prBody}")
+                if [[ "${tbPRData}" == "[]" ]]; then
+                  # Create the corresponding PR.
+                  prURL=$(gh pr create --head ${SYNC_BRANCH} --title "${prTitle}" --body "${prBody}")
 
-                if [ -z "${prURL}" ]; then
-                  echo "::warning::Creating a PR in template builder for the latest changes failed."
-                  echo "::debug::Command issued was:"
-                  prCommand="pr create --head \"${SYNC_BRANCH}\" --title \"${prTitle}\" --body \"${prBody}\""
-                  echo "::debug::${prCommand}"
+                  if [ -z "${prURL}" ]; then
+                    echo "::warning::Creating a PR in template builder for the latest changes failed."
+                    echo "::debug::Command issued was:"
+                    prCommand="pr create --head \"${SYNC_BRANCH}\" --title \"${prTitle}\" --body \"${prBody}\""
+                    echo "::debug::${prCommand}"
+                  else
+                    echo "::notice::Created a PR in template builder with the latest changes: ${prURL}"
+                  fi
                 else
-                  echo "::notice::Created a PR in template builder with the latest changes: ${prURL}"
+                  #this means we already have an open PR
+                  echo "::notice::There is already an open pull request for ${SYNC_BRANCH} on ${{ env.TEMPLATEBUILDER }}."
+                  tbPR=$(jq -r '.[] | .number' <<< $tbPRData)
+                  tbPRUrl=$(jq -r '.[] | .url' <<< $tbPRData)
+                  echo "::notice::Please see pull request #${tbPR}: ${tbPRUrl}"
+                  # now let's add a comment
+                  gh pr comment "${tbPR}" -b "${prBody}" -R ${{ env.TEMPLATEBUILDER }}
                 fi
-              else
-                #this means we already have an open PR
-                echo "::notice::There is already an open pull request for ${SYNC_BRANCH} on ${{ env.TEMPLATEBUILDER }}."
-                tbPR=$(jq -r '.[] | .number' <<< $tbPRData)
-                tbPRUrl=$(jq -r '.[] | .url' <<< $tbPRData)
-                echo "::notice::Please see pull request #${tbPR}: ${tbPRUrl}"
-                # now let's add a comment
-                gh pr comment "${tbPR}" -b "${prBody}" -R ${{ env.TEMPLATEBUILDER }}
               fi
           fi
 
