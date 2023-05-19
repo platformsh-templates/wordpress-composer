@@ -224,8 +224,6 @@ jobs:
           )
         run: |
           NL=$'\n'
-          # we want the link back to the PR that changed the package management file
-          prURL="https://github.com/$GITHUB_REPOSITORY/pulls/${{ env.PRNUMBER }}"
 
           #now we need to set up the title and body of the issue and post to template builder
           issueTitle="Package Management changes made to template ${{ env.TEMPLATENAME }}"
@@ -236,12 +234,11 @@ jobs:
           fi
 
           # now create the issue
-          issueNumber=$(gh issue create -t "${issueTitle}" -R "${{ env.TEMPLATEBUILDER }} -F issue-message.txt)
+          issueNumber=$(gh issue create -t "${issueTitle}" -R "${{ env.TEMPLATEBUILDER }}" -F issue-message.txt)
 
           if [ -z "${issueNumber}" ]; then
             echo "::warning::Creating an issue in template builder for changes to package management files failed!"
             echo "::debug::Return from issue create command was:"
-            prCommand="pr create --head \"${SYNC_BRANCH}\" --title \"${prTitle}\" --body \"${prBody}\""
             echo "::debug::${issueNumber}"
           else
             echo "::notice::Created an issue in template builder: ${issueNumber}."
