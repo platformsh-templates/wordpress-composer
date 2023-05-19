@@ -66,7 +66,10 @@
     },
 	"template-data": {
 	 	"type": "Starter",
-	  	"runtime": "Php"
+	  	"runtime": "Php",
+	  	"tags": [
+		  "CMS"
+		]
 	}
   }
 }
