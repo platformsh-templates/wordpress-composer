@@ -64,6 +64,9 @@
         "type:wordpress-muplugin"
       ]
     },
-	"template-class": "starter"
+	"template-data": {
+	 	"type": "Starter",
+	  	"runtime": "Php"
+	}
   }
 }
