@@ -81,19 +81,45 @@ jobs:
 
           echo "CONTINUEJOBS=${continueJobs}" >> "$GITHUB_OUTPUT"
 
+      - name: Determine Template Name
+        id: determine-template-name
+        shell: bash
+        if: steps.determine-if-pr-from-tb.outputs.CONTINUEJOBS == 'yes'
+        run: |
+          # Get current template name.
+          arrIN=(${GITHUB_REPOSITORY//\// })
+          TEMPLATE=${arrIN[1]}
+          # we need this in a later step as well
+          echo "TEMPLATENAME=${TEMPLATE}" >> $GITHUB_ENV
+
+      - name: Prep issue message
+        if: >-
+          steps.determine-if-pr-from-tb.outputs.CONTINUEJOBS == 'yes' &&
+          (
+            contains(steps.changed-files.outputs.all_changed_files, 'composer.json') ||
+            contains(steps.changed-files.outputs.all_changed_files, 'packages.json')
+          )
+        shell: bash
+        run: |
+          touch issue-message.txt
+          NL=$'\n'
+          # we want the link back to the PR that changed the package management file
+          prURL="https://github.com/$GITHUB_REPOSITORY/pulls/${{ env.PRNUMBER }}"
+          issueBody="One or more package management files were changed in [pull request ${{ env.PRNUMBER }}]"
+          issueBody="${issueBody}(${prURL}) for template ${{ env.TEMPLATENAME }}.${NL}${NL}"
+
+          echo "${issueBody}" >> issue-message.txt
+
       - name: "Sync updated psh configuration files"
         shell: bash
         id: build-tb-pr
         if: steps.determine-if-pr-from-tb.outputs.CONTINUEJOBS == 'yes'
+        env:
+          TEMPLATE: ${{ steps.determine-template-name.outputs.TEMPLATENAME }}
         run: |
           if [ "${{ steps.changed-files.outputs.all_changed_files }}" == "" ];then
               echo "::notice::No relevant files modified. All is well."
           else
-              # Get current template name.
-              arrIN=(${GITHUB_REPOSITORY//\// })
-              TEMPLATE=${arrIN[1]}
-              # we need this in a later step as well
-              echo "TEMPLATENAME=${TEMPLATE}" >> $GITHUB_ENV
               SYNC_BRANCH=sync-$TEMPLATE
 
               # Clone template-builder, and create a new branch that matches changes in template repo.
@@ -114,12 +140,13 @@ jobs:
 
               # go ahead and get the data on the files that were changed in the commit
               prFileData=$(gh api "/repos/${GITHUB_REPOSITORY}/pulls/${{ env.PRNUMBER }}/files")
-
+              #pr url structure
+              prURLpattern="https://github.com/%s/pull/%s/files#diff-%s"
               # Copy and stage the changed files
               echo "Syncing revisions into template-builder"
               NL=$'\n'
               msg="Synching $GITHUB_REPOSITORY ($GITHUB_SHA).${NL}"
-              issueMsg=""
+
               for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
                 # @todo this is brittle, especially if we increase the number of files we dont want to commit
                 # is there a way to filter these two files out of the list?
@@ -131,9 +158,16 @@ jobs:
                   echo "::notice::The configuration file ${file} has been changed and will be added to a PR for Template Builder."
                 else
                   # let's go ahead and build up our issue message
-                  issueMsg="${issueMsg}The package management file ${file} was changed. The following is the patch:${NL}```${NL}"
-                  filePatch=$(jq --arg filename "${file}" '.[] | select(.filename==$filename) | .patch' <<< ${prFileData})
-                  issueMsg="${issueMsg}${filePatch}${NL}```${NL}"
+                  echo "The package management file ${file} was changed. The following is the patch:" >> issue-message.txt
+                  echo "\`\`\`" >> issue-message.txt
+                  (jq --arg filename "${file}" '.[] | select(.filename==$filename) | .patch' <<< ${prFileData}) >> issue-message.txt
+                  echo "\`\`\`" >> issue-message.txt
+                  echo "" >> issue-message.txt
+                  echo "Link to the diff above: " >> issue-message.txt
+                  fileDiffVal=$(echo -n "${file}" | shasum -a 256 | cut -d ' ' -f1)
+                  echo $(printf "${prURLpattern}" "${GITHUB_REPOSITORY}" "${{ env.PRNUMBER }}" "${fileDiffVal}") >> issue-message.txt
+                  echo "" >> issue-message.txt
+                  echo "" >> issue-message.txt
                 fi
               done
 
@@ -172,8 +206,6 @@ jobs:
                 # now let's add a comment
                 gh pr comment "${tbPR}" -b "${prBody}" -R ${{ env.TEMPLATEBUILDER }}
               fi
-
-              echo "ISSUEMSG=${issueMsg}" >> $GITHUB_OUTPUT
           fi
 
 
@@ -193,13 +225,13 @@ jobs:
           #now we need to set up the title and body of the issue and post to template builder
           issueTitle="Package Management changes made to template ${{ env.TEMPLATENAME }}"
 
-          issueBody="One or more package management files were changed in [pull request ${{ env.PRNUMBER }}]"
-          issueBody="${issueBody}(${prURL}) for template ${{ env.TEMPLATENAME }}.${NL}${NL}"
-          issueBody="${issueBody}${{ steps.build-tb-pr.outputs.ISSUEMSG }}"
-          issueBody="${NL}${NL}Link to all changed files in the PR: [${prURL/files}](${prURL}/files)"
+          # this should never happen, but *just in case*...
+          if [[ ! -f "issue-message.txt" ]]; then
+            echo "Unable to retrieve patch information..." >> issue-message.txt
+          fi
 
           # now create the issue
-          issueNumber=$(gh issue create -t "${issueTitle}" -R "${{ env.TEMPLATEBUILDER }} -b "${issueBody}")
+          issueNumber=$(gh issue create -t "${issueTitle}" -R "${{ env.TEMPLATEBUILDER }} -F issue-message.txt)
 
           if [ -z "${issueNumber}" ]; then
             echo "::warning::Creating an issue in template builder for changes to package management files failed!"
