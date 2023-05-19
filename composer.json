@@ -68,7 +68,8 @@
 	 	"type": "Starter",
 	  	"runtime": "Php",
 	  	"tags": [
-		  "CMS"
+		  "CMS",
+		  "PHP"
 		]
 	}
   }
