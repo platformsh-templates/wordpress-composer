@@ -157,18 +157,18 @@ jobs:
                 else
                   # let's go ahead and build up our issue message
                   echo "::notice::Saving an issue message for ${file}"
-                  echo "The package management file ${file} was changed. The following is the patch:" >> issue-message.txt
-                  echo "\`\`\`" >> issue-message.txt
-                  (jq --arg filename "${file}" -r '.[] | select(.filename==$filename) | .patch' <<< ${prFileData}) >> issue-message.txt
-                  echo "\`\`\`" >> issue-message.txt
-                  echo "" >> issue-message.txt
-                  echo "Link to the diff above: " >> issue-message.txt
-                  fileDiffVal=$(echo -n "${file}" | shasum -a 256 | cut -d ' ' -f1);
-                  echo $(printf "${prURLpattern}" "${GITHUB_REPOSITORY}" "${{ env.PRNUMBER }}" "${fileDiffVal}") >> issue-message.txt
-                  echo "" >> issue-message.txt
-                  echo "" >> issue-message.txt
-                  echo "::notice::contents of issue-message after adding everything?"
-                  cat issue-message.txt
+                  {
+                    echo "The package management file ${file} was changed. The following is the patch:";
+                    echo "\`\`\`";
+                    echo "$(jq --arg filename "${file}" -r '.[] | select(.filename==$filename) | .patch' <<< ${prFileData})";
+                    echo "\`\`\`";
+                    echo "";
+                    echo "Link to the diff above: ";
+                    fileDiffVal=$(echo -n "${file}" | shasum -a 256 | cut -d ' ' -f1);
+                    echo $(printf "${prURLpattern}" "${GITHUB_REPOSITORY}" "${{ env.PRNUMBER }}" "${fileDiffVal}");
+                    echo "";
+                    echo "";
+                    } >> ../issue-message.txt
                 fi
               done
 
@@ -240,17 +240,6 @@ jobs:
             echo "::debug::Return from issue create command was:"
             echo "::debug::${issueNumber}"
           else
-            echo "::notice::Created an issue in template builder: ${issueNumber}."
+            echo "::notice::Created an issue in template builder: ${issueNumber}"
           fi
 
-      - name: Debug issue message
-        shell: bash
-        if: >-
-          steps.determine-if-pr-from-tb.outputs.CONTINUEJOBS == 'yes' &&
-          (
-            contains(steps.changed-files.outputs.all_changed_files, 'composer.json') ||
-            contains(steps.changed-files.outputs.all_changed_files, 'packages.json')
-          )
-        run: |
-          echo "::notice::Contents of the issue message file I just used."
-          cat issue-message.txt
