@@ -159,7 +159,7 @@ jobs:
                   echo "::notice::Saving an issue message for ${file}"
                   echo "The package management file ${file} was changed. The following is the patch:" >> issue-message.txt
                   echo "\`\`\`" >> issue-message.txt
-                  (jq --arg filename "${file}" -r '.[] | select(.filename==$filename) | .patch' <<< ${prFileData}) >> >> issue-message.txt
+                  (jq --arg filename "${file}" -r '.[] | select(.filename==$filename) | .patch' <<< ${prFileData}) >> issue-message.txt
                   echo "\`\`\`" >> issue-message.txt
                   echo "" >> issue-message.txt
                   echo "Link to the diff above: " >> issue-message.txt
