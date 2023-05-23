@@ -257,7 +257,7 @@ jobs:
             echo "identifier=${issueNumber}" >> $GITHUB_OUTPUT
           fi
 
-          echo "addlabel=${addLabel} >> $GITHUB_OUTPUT
+          echo "addlabel=${addLabel}" >> $GITHUB_OUTPUT
 
       - name: Add Label to PR
         # We also need the pull request number...
