@@ -266,7 +266,7 @@ jobs:
         uses: platformsh/gha-add-label@main
         with:
           issue-type: 'pull request'
-          identifier: ${{ inputs.item-number }}
+          identifier: ${{ steps.build-tb-pr.outputs.identifier }}
           github-token: ${{ env.GITHUB_TOKEN }}
           label: ${{ env.TEMPLATENAME }}
           repo-owner: ${{ env.TBOWNER }}
@@ -284,7 +284,7 @@ jobs:
         uses: platformsh/gha-add-label@main
         with:
           issue-type: 'issue'
-          identifier: ${{ steps.create-label.outputs.identifier }}
+          identifier: ${{ steps.create-issue.outputs.identifier }}
           github-token: ${{ env.GITHUB_TOKEN }}
           label: ${{ env.TEMPLATENAME }}
           repo-owner: ${{ env.TBOWNER }}
