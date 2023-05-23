@@ -1,8 +1,10 @@
+# Complete list of all available properties: https://docs.platform.sh/create-apps/app-reference.html
+
 # The name of this app. Must be unique within a project.
 name: app
 
 # The runtime the application uses.
-# Complete list of available runtimes: https://docs.platform.sh/create-apps/app-reference.html#types 
+# Complete list of available runtimes: https://docs.platform.sh/create-apps/app-reference.html#types
 type: 'php:8.1'
 
 # Specifies a default set of build tasks to run. Flavors are language-specific.
