@@ -2,6 +2,7 @@
 name: app
 
 # The runtime the application uses.
+# Complete list of available runtimes: https://docs.platform.sh/create-apps/app-reference.html#types 
 type: 'php:8.1'
 
 # Specifies a default set of build tasks to run. Flavors are language-specific.
