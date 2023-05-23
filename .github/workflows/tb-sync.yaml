@@ -219,7 +219,7 @@ jobs:
                 fi
               fi
 
-          echo "addlabel=${addLabel} >> $GITHUB_OUTPUT
+          echo "addlabel=${addLabel}" >> $GITHUB_OUTPUT
 
           fi
 
