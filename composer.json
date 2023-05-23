@@ -65,7 +65,8 @@
       ]
     },
 	"template-data": {
-	 	"type": "Starter"
+	 	"type": "Starter",
+	  	"runtime": "PHP8.1"
 	}
   }
 }

@@ -1,6 +1,7 @@
 # Complete list of all available properties: https://docs.platform.sh/create-apps/app-reference.html
 
-# The name of this app. Must be unique within a project.
+# A unique name for the app. Must be lowercase alphanumeric characters. Changing the name destroys data associated
+# with the app.
 name: app
 
 # The runtime the application uses.
