@@ -123,6 +123,7 @@ jobs:
           if [ "${{ steps.changed-files.outputs.all_changed_files }}" == "" ];then
               echo "::notice::No relevant files modified. All is well."
           else
+              addLabel="no"
               SYNC_BRANCH=sync-${{ env.TEMPLATENAME }}
 
               # Clone template-builder, and create a new branch that matches changes in template repo.
@@ -204,6 +205,8 @@ jobs:
                     echo "::debug::${prCommand}"
                   else
                     echo "::notice::Created a PR in template builder with the latest changes: ${prURL}"
+                    addLabel="yes"
+                    echo "identifier=${prURL}" >> $GITHUB_OUTPUT
                   fi
                 else
                   #this means we already have an open PR
@@ -215,11 +218,15 @@ jobs:
                   gh pr comment "${tbPR}" -b "${prBody}" -R ${{ env.TEMPLATEBUILDER }}
                 fi
               fi
+
+          echo "addlabel=${addLabel} >> $GITHUB_OUTPUT
+
           fi
 
 
       - name: Create issue if package management files were changed
         shell: bash
+        id: create-issue
         if: >-
           steps.determine-if-pr-from-tb.outputs.CONTINUEJOBS == 'yes' &&
           (
@@ -228,7 +235,7 @@ jobs:
           )
         run: |
           NL=$'\n'
-
+          addLabel="no"
           #now we need to set up the title and body of the issue and post to template builder
           issueTitle="Package Management changes made to template ${{ env.TEMPLATENAME }}"
 
@@ -246,5 +253,39 @@ jobs:
             echo "::debug::${issueNumber}"
           else
             echo "::notice::Created an issue in template builder: ${issueNumber}"
+            addLabel="yes"
+            echo "identifier=${issueNumber}" >> $GITHUB_OUTPUT
           fi
 
+          echo "addlabel=${addLabel} >> $GITHUB_OUTPUT
+
+      - name: Add Label to PR
+        # We also need the pull request number...
+        if: >-
+          steps.determine-if-pr-from-tb.outputs.CONTINUEJOBS == 'yes' && steps.build-tb-pr.outputs.addlabel == 'yes'
+        uses: platformsh/gha-add-label@main
+        with:
+          issue-type: 'pull request'
+          identifier: ${{ inputs.item-number }}
+          github-token: ${{ env.GITHUB_TOKEN }}
+          label: ${{ env.TEMPLATENAME }}
+          repo-owner: ${{ env.TBOWNER }}
+          repo-name: ${{ env.TBREPO }}
+
+      - name: Add Label to Issue
+        # We also need the issue number...
+        if: >-
+          steps.determine-if-pr-from-tb.outputs.CONTINUEJOBS == 'yes' &&
+          steps.create-issue.outputs.addlabel == 'yes' &&
+          (
+            contains(steps.changed-files.outputs.all_changed_files, 'composer.json') ||
+            contains(steps.changed-files.outputs.all_changed_files, 'packages.json')
+          )
+        uses: platformsh/gha-add-label@main
+        with:
+          issue-type: 'issue'
+          identifier: ${{ steps.create-label.outputs.identifier }}
+          github-token: ${{ env.GITHUB_TOKEN }}
+          label: ${{ env.TEMPLATENAME }}
+          repo-owner: ${{ env.TBOWNER }}
+          repo-name: ${{ env.TBREPO }}
