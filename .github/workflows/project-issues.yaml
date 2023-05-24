@@ -7,14 +7,14 @@
 ##                                       YOU CAN SAFELY DELETE THIS FILE                                              ##
 ##                                                                                                                    ##
 ########################################################################################################################
-name: Runs post merge-acceptance workflows
+name: Sync repository issues to template-builder project
+
 on:
-  push:
-    branches:
-      - main
-      - master
+  issues:
+    types:
+      - opened
 
 jobs:
-  run-reusable-post-pr-acceptance:
-    uses: platformsh-templates/ghrw-templates/.github/workflows/post-pr-acceptance.yaml@main
+  run-reusable-issue-sync:
+    uses: platformsh-templates/ghrw-templates/.github/workflows/project-issues.yaml@main
     secrets: inherit
