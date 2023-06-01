@@ -7,7 +7,7 @@
 ##                                       YOU CAN SAFELY DELETE THIS FILE                                              ##
 ##                                                                                                                    ##
 ########################################################################################################################
-name: Run Post PR Acceptance jobs
+name: Runs post merge-acceptance workflows
 on:
   push:
     branches:
@@ -15,11 +15,6 @@ on:
       - master
 
 jobs:
-  tb-sync:
-    uses: ./.github/workflows/tb-sync.yaml
-    secrets: inherit
-  last-updated:
-    if: ${{ always() }}
-    needs: [ tb-sync ]
-    uses: platformsh-templates/ghrw-templates/.github/workflows/last-updated.yaml@main
+  run-reusable-post-pr-acceptance:
+    uses: platformsh-templates/ghrw-templates/.github/workflows/post-pr-acceptance.yaml@main
     secrets: inherit
