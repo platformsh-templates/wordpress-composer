@@ -753,16 +753,16 @@
         },
         {
             "name": "gettext/gettext",
-            "version": "v4.8.8",
+            "version": "v4.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "302a00aa9d6762c92c884d879c15d3ed05d6a37d"
+                "reference": "9fd2cf8230e36fbed87d36b7da9a47441fc27270"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/302a00aa9d6762c92c884d879c15d3ed05d6a37d",
-                "reference": "302a00aa9d6762c92c884d879c15d3ed05d6a37d",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/9fd2cf8230e36fbed87d36b7da9a47441fc27270",
+                "reference": "9fd2cf8230e36fbed87d36b7da9a47441fc27270",
                 "shasum": ""
             },
             "require": {
@@ -814,7 +814,7 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/oscarotero/Gettext/issues",
-                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.8"
+                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.10"
             },
             "funding": [
                 {
@@ -830,7 +830,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-12-08T11:59:50+00:00"
+            "time": "2023-08-10T14:26:38+00:00"
         },
         {
             "name": "gettext/languages",
@@ -908,16 +908,16 @@
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "6.2.2",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "5ed6d4a0469ff42d7ec4a1f72558be8f897a6e18"
+                "reference": "d8a7716377714e21ab44e0d3c5632a57ada5788a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/5ed6d4a0469ff42d7ec4a1f72558be8f897a6e18",
-                "reference": "5ed6d4a0469ff42d7ec4a1f72558be8f897a6e18",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/d8a7716377714e21ab44e0d3c5632a57ada5788a",
+                "reference": "d8a7716377714e21ab44e0d3c5632a57ada5788a",
                 "shasum": ""
             },
             "require": {
@@ -925,7 +925,7 @@
                 "php": ">=5.6.20"
             },
             "provide": {
-                "wordpress/core-implementation": "6.2.2"
+                "wordpress/core-implementation": "6.3.0"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -952,7 +952,7 @@
                 "source": "https://core.trac.wordpress.org/browser",
                 "wiki": "https://codex.wordpress.org/"
             },
-            "time": "2023-05-20T04:40:42+00:00"
+            "time": "2023-08-10T16:07:25+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
