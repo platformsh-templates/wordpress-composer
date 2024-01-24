@@ -1,0 +1,20 @@
+# This is a sample .blackfire.yaml file created by Blackfire.
+# You can read more about .blackfire.yaml here: https://blackfire.io/docs/cookbooks/tests# Sample .blackfire.yaml file
+# Read more about .blackfire.yaml at https://blackfire.io/docs/testing-cookbooks/tests
+
+tests:
+  "The homepage should be fast":
+    path: "/"
+    assertions:
+      - "main.wall_time < 100ms"
+
+
+# Read more about writing scenarios at https://blackfire.io/docs/builds-cookbooks/scenarios
+scenarios: |
+  #!blackfire-player
+
+  scenario
+      name 'Anonymous visit'
+
+      visit url('/')
+          expect status_code() == 200
