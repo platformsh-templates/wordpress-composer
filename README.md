@@ -66,6 +66,8 @@ To get started using Lando with your Platform.sh project check out the [Quick St
 ## References
 
 * [WordPress](https://wordpress.org/)
+
+<!-- test blackfire -->
 * [WordPress on Platform.sh](https://docs.platform.sh/frameworks/wordpress.html)
 * [PHP on Platform.sh](https://docs.platform.sh/languages/php.html)
 * [How to install Wordpress plugins and themes with Composer](https://community.platform.sh/t/how-to-install-wordpress-plugins-and-themes-with-composer/507)
