@@ -70,3 +70,5 @@ To get started using Lando with your Platform.sh project check out the [Quick St
 * [PHP on Platform.sh](https://docs.platform.sh/languages/php.html)
 * [How to install Wordpress plugins and themes with Composer](https://community.platform.sh/t/how-to-install-wordpress-plugins-and-themes-with-composer/507)
 * [How to install custom/private Wordpress plugins and themes with Composer](https://community.platform.sh/t/how-to-install-custom-private-wordpress-plugins-and-themes-with-composer/622)
+
+<!-- blackfire integration test 2 -->
