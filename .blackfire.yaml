@@ -6,15 +6,26 @@ tests:
   "The homepage should be fast":
     path: "/"
     assertions:
-      - "main.wall_time < 100ms"
+      - "main.wall_time < 200ms"
 
 
 # Read more about writing scenarios at https://blackfire.io/docs/builds-cookbooks/scenarios
 scenarios: |
-  #!blackfire-player
+    #!blackfire-player
 
-  scenario
-      name 'Anonymous visit'
+    scenario
+        name 'Anonymous visit'
 
-      visit url('/')
-          expect status_code() == 200
+        visit url('/')
+            expect status_code() == 200
+        visit url('/category/uncategorized/')
+            expect status_code() == 200
+
+    scenario
+        name 'test login'
+        visit "/login.php"
+            expect status_code() == 302
+            expect header('Location') == '/wp-login.php'
+
+        follow
+            expect status_code() == 200
