@@ -3914,16 +3914,16 @@
         },
         {
             "name": "wp-cli/i18n-command",
-            "version": "v2.6.0",
+            "version": "2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wp-cli/i18n-command.git",
-                "reference": "ca7a44a1f8b09d533621b4006e739974212860ee"
+                "reference": "7538d684d4f06b0e10c8a0166ce4e6d9e1687aa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/ca7a44a1f8b09d533621b4006e739974212860ee",
-                "reference": "ca7a44a1f8b09d533621b4006e739974212860ee",
+                "url": "https://api.github.com/repos/wp-cli/i18n-command/zipball/7538d684d4f06b0e10c8a0166ce4e6d9e1687aa1",
+                "reference": "7538d684d4f06b0e10c8a0166ce4e6d9e1687aa1",
                 "shasum": ""
             },
             "require": {
@@ -3977,9 +3977,9 @@
             "homepage": "https://github.com/wp-cli/i18n-command",
             "support": {
                 "issues": "https://github.com/wp-cli/i18n-command/issues",
-                "source": "https://github.com/wp-cli/i18n-command/tree/v2.6.0"
+                "source": "https://github.com/wp-cli/i18n-command/tree/2.6.1"
             },
-            "time": "2024-02-01T14:25:11+00:00"
+            "time": "2024-02-28T11:27:34+00:00"
         },
         {
             "name": "wp-cli/import-command",
