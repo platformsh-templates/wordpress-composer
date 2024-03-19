@@ -31,7 +31,7 @@ hooks:
         set -e
         # Copy manually-provided plugins into the plugins directory.
         # This allows manually-provided and composer-provided plugins to coexist.
-        rsync -a plugins/* wordpress/wp-content/plugins/
+        rsync -a plugins/ wordpress/wp-content/plugins/
 
     # The deploy hook is run after the app container has been started, but before it has started accepting requests.
     # More information: https://docs.platform.sh/create-apps/hooks/hooks-comparison.html#deploy-hook
