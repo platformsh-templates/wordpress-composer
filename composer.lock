@@ -997,24 +997,24 @@
         },
         {
             "name": "johnpbloch/wordpress-core",
-            "version": "6.5.5",
+            "version": "6.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress-core.git",
-                "reference": "be6edfa018053533267a16e73f6623b0fa27b2df"
+                "reference": "d5df1e2231c10c430de90db1728f705f47b6d7c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/be6edfa018053533267a16e73f6623b0fa27b2df",
-                "reference": "be6edfa018053533267a16e73f6623b0fa27b2df",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress-core/zipball/d5df1e2231c10c430de90db1728f705f47b6d7c4",
+                "reference": "d5df1e2231c10c430de90db1728f705f47b6d7c4",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "php": ">=7.0.0"
+                "php": ">=7.2.24"
             },
             "provide": {
-                "wordpress/core-implementation": "6.5.5"
+                "wordpress/core-implementation": "6.6.0"
             },
             "type": "wordpress-core",
             "notification-url": "https://packagist.org/downloads/",
@@ -1041,7 +1041,7 @@
                 "source": "https://core.trac.wordpress.org/browser",
                 "wiki": "https://codex.wordpress.org/"
             },
-            "time": "2024-06-24T17:24:47+00:00"
+            "time": "2024-07-16T16:28:33+00:00"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -5160,15 +5160,15 @@
         },
         {
             "name": "wpackagist-theme/twentytwentythree",
-            "version": "1.4",
+            "version": "1.5",
             "source": {
                 "type": "svn",
                 "url": "https://themes.svn.wordpress.org/twentytwentythree/",
-                "reference": "1.4"
+                "reference": "1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentytwentythree.1.4.zip"
+                "url": "https://downloads.wordpress.org/theme/twentytwentythree.1.5.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -5178,15 +5178,15 @@
         },
         {
             "name": "wpackagist-theme/twentytwentytwo",
-            "version": "1.7",
+            "version": "1.8",
             "source": {
                 "type": "svn",
                 "url": "https://themes.svn.wordpress.org/twentytwentytwo/",
-                "reference": "1.7"
+                "reference": "1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentytwentytwo.1.7.zip"
+                "url": "https://downloads.wordpress.org/theme/twentytwentytwo.1.8.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
