@@ -49,3 +49,5 @@ wordpress/wp-content/uploads
 
 # Ignore post install command artifact locally
 wordpress/wp-config.php
+
+.cypress/node_modules
