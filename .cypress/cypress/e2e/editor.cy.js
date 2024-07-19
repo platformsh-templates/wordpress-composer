@@ -57,7 +57,7 @@ describe("Editor can log in and post", ()=>{
 		//cy.get('[aria-label="Add title"]').click().type('Hello!')
 	})
 
-  it.only('can delete their own posts', ()=>{
+  it('can delete their own posts', ()=>{
     // Auth and get session
     cy.wplogin(Cypress.env('test_user'),Cypress.env('test_user_pass'))
     // Programmatically add a post so we can delete it
