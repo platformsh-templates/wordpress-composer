@@ -65,8 +65,10 @@ describe("Editor can log in and post", ()=>{
     cy.visit('/wp-admin/edit.php')
     // our post should be here
     cy.get('#the-list').find('[data-colname="Title"]').contains(`${newPost.title} test`).should('exist')
-    // now click it
-    cy.get('#the-list').find('[data-colname="Title"]').contains(`${newPost.title} test`).as('ourCell')
+    // this should yield the a element. we want its parent element that is a td
+    cy.get('#the-list').find('[data-colname="Title"]').contains(`${newPost.title} test`).as('ourPost')
+    cy.get('@ourPost').parent('td').as('ourCell')
+
     cy.get('@ourCell')
       .find('span[class="trash"]').contains('Trash')
       .find('a[class="submitdelete"]').click()
