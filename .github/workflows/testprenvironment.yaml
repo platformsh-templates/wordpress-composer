@@ -30,3 +30,40 @@ jobs:
   TestPrEnv-CW:
     uses: platformsh-templates/ghrw-templates/.github/workflows/testprenvironment.yaml@main
     secrets: inherit
+
+  # This one will eventually be migrated into the above reusable workflow
+  runE2Etests:
+    runs-on: ubuntu-latest
+    name: Runs E2E testing on PR Environment
+    env:
+      PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
+      PLATFORM_PROJECT: ${{ vars.PROJECT_ID }}
+      PLATFORM_BRANCH: "pr-${{ github.event.pull_request.number }}"
+    steps:
+      - name: Get Project ID
+        id: get-proj-id
+        uses: platformsh/gha-retrieve-projectid@main
+        with:
+          github_token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }
+      - name: Sets up the Platformsh CLI
+        run: curl -fsSL https://raw.githubusercontent.com/platformsh/cli/main/installer.sh | bash
+        shell: bash
+      - name: 'Wait for psh and get target url'
+        id: get-target-url
+        uses: platformsh/gha-retrieve-psh-prenv-url@main
+        with:
+          github-token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
+        name: Check out the repository
+      - uses: cypress-io/github-action@v6
+        name: Run E2E tests
+        with:
+          wait-on: ${{ steps.get-target-url.outputs.target_url }}
+          record: true
+          working-directory: ./.cypress
+        env:
+          CYPRESS_baseUrl: ${{ steps.get-target-url.outputs.target_url }}
+          CYPRESS_environment: platform
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PLATFORM_PROJECT: ${{ steps.get-proj-id.outputs.project_id }}
