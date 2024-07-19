@@ -70,9 +70,9 @@ describe("Editor can log in and post", ()=>{
     //cy.closeWelcomeModal()
     //cy.get('.editor-post-trash').click()
     //3 ... menu
-    cy.get(':rl:').click()
+    cy.get('#:rl:').click()
     //Move to trash "button"
-    cy.get(':r23:').should('contain','Move to Trash').click()
+    cy.get('#:r23:').should('contain','Move to Trash').click()
     cy.get('.components-flex > .is-primary').should('contain','Trash').click()
 
   })
