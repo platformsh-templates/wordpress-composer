@@ -31,7 +31,7 @@ describe("Editor can log in and post", ()=>{
 
 	})
 
-	it.only('Can add and view a new post ', ()=> {
+	it('Can add and view a new post ', ()=> {
 		cy.wplogin(Cypress.env('test_user'),Cypress.env('test_user_pass'))
 		cy.visit('/wp-admin/post-new.php')
 		cy.get('button[aria-label="Options"]').click()
