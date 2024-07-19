@@ -68,8 +68,12 @@ describe("Editor can log in and post", ()=>{
     // now click it
     cy.get('#the-list').find('[data-colname="Title"]').contains(`${newPost.title} test`).click()
     //cy.closeWelcomeModal()
-    cy.get('.editor-post-trash').click()
-    cy.get('.components-flex > .is-primary').should('contain','OK').click()
+    //cy.get('.editor-post-trash').click()
+    //3 ... menu
+    cy.get(':rl:').click()
+    //Move to trash "button"
+    cy.get(':r23:').should('contain','Move to Trash').click()
+    cy.get('.components-flex > .is-primary').should('contain','Trash').click()
 
   })
 })
