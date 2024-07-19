@@ -66,14 +66,18 @@ describe("Editor can log in and post", ()=>{
     // our post should be here
     cy.get('#the-list').find('[data-colname="Title"]').contains(`${newPost.title} test`).should('exist')
     // now click it
-    cy.get('#the-list').find('[data-colname="Title"]').contains(`${newPost.title} test`).click()
-    //cy.closeWelcomeModal()
-    //cy.get('.editor-post-trash').click()
-    //3 ... menu
-    cy.get('#:rl:').click()
-    //Move to trash "button"
-    cy.get('#:r23:').should('contain','Move to Trash').click()
-    cy.get('.components-flex > .is-primary').should('contain','Trash').click()
+    cy.get('#the-list').find('[data-colname="Title"]').contains(`${newPost.title} test`).as('ourCell')
+    cy.get('@ourCell')
+      .find('span[class="trash"]').contains('Trash')
+      .find('a[class="submitdelete"]').click()
+    cy.get('#message').should('contain','1 post moved to the Trash')
+    // //cy.closeWelcomeModal()
+    // //cy.get('.editor-post-trash').click()
+    // //3 ... menu
+    // cy.get('button[aria-label="Actions"]').click()
+    // //Move to trash "button"
+    // cy.get('#:r23:').should('contain','Move to Trash').click()
+    // cy.get('.components-flex > .is-primary').should('contain','Trash').click()
 
   })
 })
