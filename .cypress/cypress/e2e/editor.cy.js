@@ -40,8 +40,8 @@ describe("Editor can log in and post", ()=>{
     cy.get('#post-content-0').type(newPost.body)
 
 		//yes, this is brittle but there aren't any id's and very few other identifiers to target these elements
-		cy.get('div[class="edit-post-text-editor__toolbar"]').find('button').contains('Exit code editor').click()
-
+		//cy.get('div[class="edit-post-text-editor__toolbar"]').find('button').contains('Exit code editor').click()
+    cy.get('div[class="editor-text-editor__toolbar"]').find('button').contains('Exit code editor').click()
 		cy.get('#editor').find('button').contains('Publish').click()
 		//now we have ANOTHER panel that displays and asks us to click ANOTHER publish button
 		cy.get('div[class="editor-post-publish-panel"]').as('publishpanel')
