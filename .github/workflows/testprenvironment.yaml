@@ -35,6 +35,7 @@ jobs:
   runE2Etests:
     runs-on: ubuntu-latest
     name: Runs E2E testing on PR Environment
+    needs: TestPrEnv-CW
     env:
       PLATFORMSH_CLI_TOKEN: ${{ secrets.TEMPLATES_CLI_TOKEN }}
       PLATFORM_PROJECT: ${{ vars.PROJECT_ID }}
