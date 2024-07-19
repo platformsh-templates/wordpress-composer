@@ -44,7 +44,7 @@ jobs:
         id: get-proj-id
         uses: platformsh/gha-retrieve-projectid@main
         with:
-          github_token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }
+          github_token: ${{ secrets.TEMPLATES_GITHUB_TOKEN }}
       - name: Sets up the Platformsh CLI
         run: curl -fsSL https://raw.githubusercontent.com/platformsh/cli/main/installer.sh | bash
         shell: bash
