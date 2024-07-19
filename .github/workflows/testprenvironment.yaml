@@ -36,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Runs E2E testing on PR Environment
     env:
-      PLATFORMSH_CLI_TOKEN: ${{ secrets.PLATFORMSH_CLI_TOKEN }}
+      PLATFORMSH_CLI_TOKEN: ${{ secrets.TEMPLATES_CLI_TOKEN }}
       PLATFORM_PROJECT: ${{ vars.PROJECT_ID }}
       PLATFORM_BRANCH: "pr-${{ github.event.pull_request.number }}"
     steps:
