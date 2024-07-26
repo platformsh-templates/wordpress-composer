@@ -81,15 +81,6 @@ Cypress.Commands.add('beforeCreateUser', (username) => {
       cy.exec(cmdUserDelete).its('code').should('eq',0)
     }
   })
-
-  // cy.exec(cmdUserFind).then((response)=>{
-  //   if(response.stdout !== '') {
-  //     console.log(`user ${username} exists and has an ID of ${response.stdout}`)
-  //     Cypress.session.clearAllSavedSessions()
-  //     const cmdUserDelete = `${cmdPrefix} wp user delete ${response.stdout} --reassign=false`
-  //     cy.exec(cmdUserDelete).its('code').should('eq',0)
-  //   }
-  // })
 })
 
 /**
@@ -170,12 +161,6 @@ Cypress.Commands.add('addPostForUser',(username, postObject)=>{
     cy.exec(cmdNewPost).its('code').should('eq',0)
   })
 })
-
-// Cypress.Commands.add('closeWelcomeModal',()=>{
-//   cy.get('.components-modal__header > .components-button').should('exist').then((button)=> {
-//     cy.wrap(button).click()
-//   })
-// })
 
 /**
  * Sets the user pref to not display the welcome message in the post editor screen
