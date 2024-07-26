@@ -44,7 +44,7 @@ jobs:
         env:
           PLATFORM_PROJECT: ${{ steps.get-proj-id.outputs.project_id }}
         run: |
-          platform wp user delete bobby --yes --quiet
+          platform ssh wp user delete bobby --yes --quiet
 
   # !!!! WARNING !!!! #
   # If for some reason you decide to change this jobid from `TestPrEnv-CW` to something else, you will also need to
