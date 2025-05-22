@@ -37,7 +37,7 @@ describe("Editor can log in and post", ()=>{
 		// cy.get('button[aria-label="Options"]').click()
 		// cy.get('div[class="components-menu-group"]').find('button').contains('Code editor').click()
     cy.get('body').type(
-      '{command}{shift}{alt}m'
+      '{control}{shift}{alt}m'
     )
 		cy.get('#inspector-textarea-control-0').type(newPost.title)
     cy.get('#post-content-0').type(newPost.body)
