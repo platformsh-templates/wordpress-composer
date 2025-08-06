@@ -5261,15 +5261,15 @@
         },
         {
             "name": "wpackagist-theme/twentytwentyone",
-            "version": "2.5",
+            "version": "2.6",
             "source": {
                 "type": "svn",
                 "url": "https://themes.svn.wordpress.org/twentytwentyone/",
-                "reference": "2.5"
+                "reference": "2.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentytwentyone.2.5.zip"
+                "url": "https://downloads.wordpress.org/theme/twentytwentyone.2.6.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
