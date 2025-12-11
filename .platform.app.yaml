@@ -44,7 +44,7 @@ hooks:
             # Runs all cron events that are due now and may have come due during the build+deploy procedure
             wp cron event run --due-now
         else
-            echo "WordPress is not installed. Skipping deloy steps."
+            echo "WordPress is not installed. Skipping deploy steps."
         fi
 
 # The relationships of the application with services or other applications.
