@@ -36,12 +36,16 @@ hooks:
     # The deploy hook is run after the app container has been started, but before it has started accepting requests.
     # More information: https://docs.platform.sh/create-apps/hooks/hooks-comparison.html#deploy-hook
     deploy: |
-        # Flushes the object cache which might have changed between current production and newly deployed changes
-        wp cache flush
-        # Runs the WordPress database update procedure in case core is being updated with the newly deployed changes
-        wp core update-db
-        # Runs all cron events that are due now and may have come due during the build+deploy procedure
-        wp cron event run --due-now
+        if [ $(wp core is-installed) ]; then
+            # Flushes the object cache which might have changed between current production and newly deployed changes
+            wp cache flush
+            # Runs the WordPress database update procedure in case core is being updated with the newly deployed changes
+            wp core update-db
+            # Runs all cron events that are due now and may have come due during the build+deploy procedure
+            wp cron event run --due-now
+        else
+            echo "WordPress is not installed. Skipping deploy steps."
+        fi
 
 # The relationships of the application with services or other applications.
 # The left-hand side is the name of the relationship as it will be exposed
@@ -107,7 +111,7 @@ mounts:
         source: local
         source_path: "uploads"
 
-# More information: https://docs.platform.sh/create-apps/app-reference.html#extensions 
+# More information: https://docs.platform.sh/create-apps/app-reference.html#extensions
 runtime:
     extensions:
         - blackfire
