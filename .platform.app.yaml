@@ -19,7 +19,7 @@ build:
 # More information: https://docs.platform.sh/create-apps/app-reference.html#dependencies
 dependencies:
     php:
-        composer/composer: '^2'
+        composer/composer: '2.6.4'
         wp-cli/wp-cli-bundle: "^2.4.0"
 
 # Hooks allow you to customize your code/environment as the project moves through the build and deploy stages
@@ -107,7 +107,7 @@ mounts:
         source: local
         source_path: "uploads"
 
-# More information: https://docs.platform.sh/create-apps/app-reference.html#extensions 
+# More information: https://docs.platform.sh/create-apps/app-reference.html#extensions
 runtime:
     extensions:
         - blackfire
