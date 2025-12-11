@@ -19,7 +19,7 @@ build:
 # More information: https://docs.platform.sh/create-apps/app-reference.html#dependencies
 dependencies:
     php:
-        composer/composer: '2.6.4'
+        composer/composer: '>=2.0 <2.9'
         wp-cli/wp-cli-bundle: "^2.4.0"
 
 # Hooks allow you to customize your code/environment as the project moves through the build and deploy stages
