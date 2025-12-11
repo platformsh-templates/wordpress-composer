@@ -1,0 +1,68 @@
+# Upsun configuration, generated using AI at: 2025-09-22T10:08:09-05:00
+# AI can make mistakes. Please modify this file to suit your needs.
+applications:
+  wordpress:
+    type: php:8.3
+
+    build:
+      flavor: none
+
+    hooks:
+      build: |
+        set -ex
+        composer install --no-progress --no-interaction --optimize-autoloader --no-dev
+
+        # Set environment variables for runtime use
+        echo >> .environment 'export DATABASE_URL="${DB_SCHEME}://${DB_USERNAME}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_PATH}"'
+        echo >> .environment 'export WP_HOME=$(echo $PLATFORM_ROUTES | base64 --decode | jq -r "to_entries[] | select(.value.primary == true) | .key")'
+        echo >> .environment 'export WP_SITEURL="${WP_HOME%/}/wordpress"'
+
+      deploy: |
+        set -ex
+        if wp core is-installed; then
+          wp cache flush
+          wp core update-db
+        else
+          echo "Skipping: WordPress site not yet installed."
+        fi
+
+    web:
+      locations:
+        /:
+          root: wordpress
+          passthru: /index.php
+          index:
+            - index.php
+          expires: 600
+          scripts: true
+          allow: true
+          rules:
+            '^/composer\.json$':
+              allow: false
+            '^/license\.txt$':
+              allow: false
+            '^/readme\.html$':
+              allow: false
+
+    mounts:
+      wordpress/wp-content/uploads:
+        source: storage
+
+    relationships:
+      database: {}
+    dependencies:
+      php:
+        composer/composer: '2.6.4'
+services:
+  database:
+    type: mariadb:11.8
+
+routes:
+  https://{default}/:
+    type: upstream
+    upstream: wordpress:http
+    cache:
+      enabled: true
+      cookies:
+        - '/^wordpress_*/'
+        - '/^wp-*/'
