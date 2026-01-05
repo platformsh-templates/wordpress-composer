@@ -36,7 +36,7 @@ hooks:
     # The deploy hook is run after the app container has been started, but before it has started accepting requests.
     # More information: https://docs.platform.sh/create-apps/hooks/hooks-comparison.html#deploy-hook
     deploy: |
-        if [ $(wp core is-installed) ]; then
+        if output=$(wp core is-installed); then
             # Flushes the object cache which might have changed between current production and newly deployed changes
             wp cache flush
             # Runs the WordPress database update procedure in case core is being updated with the newly deployed changes
