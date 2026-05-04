@@ -1,49 +1,38 @@
 {
-  "name": "johnpbloch/wordpress",
-  "description": "WordPress is open source software you can use to create a beautiful website, blog, or app.",
+  "name": "platformsh-templates/wordpress-composer",
+  "description": "Platform.sh starter template for deploying WordPress via Composer.",
   "keywords": [
     "wordpress",
-    "blog",
+    "composer",
+    "platformsh",
     "cms"
   ],
-  "type": "package",
-  "homepage": "https://wordpress.org/",
+  "type": "project",
+  "homepage": "https://github.com/platformsh-templates/wordpress-composer",
   "license": "GPL-2.0+",
-  "authors": [
-    {
-      "name": "WordPress Community",
-      "homepage": "https://wordpress.org/about/"
-    }
-  ],
   "support": {
-    "issues": "https://core.trac.wordpress.org/",
-    "forum": "https://wordpress.org/support/",
-    "docs": "https://developer.wordpress.org/",
-    "irc": "irc://irc.freenode.net/wordpress",
-    "source": "https://core.trac.wordpress.org/browser"
+    "issues": "https://github.com/platformsh-templates/wordpress-composer/issues",
+    "source": "https://github.com/platformsh-templates/wordpress-composer"
   },
   "require": {
-    "php": ">=5.6.20",
-    "johnpbloch/wordpress-core-installer": "^1.0 || ^2.0",
-    "johnpbloch/wordpress-core": "^6.2.2",
+    "php": ">=8.0",
+    "roots/wordpress": "^6.0",
     "platformsh/config-reader": "^2.4",
     "wp-cli/wp-cli-bundle": "^2.7",
     "psy/psysh": "^0.11.18",
-    "wpackagist-plugin/akismet": "^5.1",
-    "wpackagist-theme/twentytwentyone": "^2.0",
-    "wpackagist-theme/twentytwentytwo": "^2.0",
-    "wpackagist-theme/twentytwentythree": "^1.1"
+    "wp-plugin/akismet": "^5.1",
+    "wp-theme/twentytwentyfive": "^1.0"
   },
   "config": {
     "allow-plugins": {
-      "johnpbloch/wordpress-core-installer": true,
+      "roots/wordpress-core-installer": true,
       "composer/installers": true
     }
   },
   "repositories": [
     {
       "type": "composer",
-      "url": "https://wpackagist.org"
+      "url": "https://repo.wp-packages.org"
     }
   ],
   "scripts": {
@@ -53,6 +42,7 @@
     "post-install-cmd": "@subdirComposer"
   },
   "extra": {
+    "wordpress-install-dir": "wordpress",
     "installer-paths": {
       "wordpress/wp-content/plugins/{$name}": [
         "type:wordpress-plugin"
