@@ -5360,15 +5360,15 @@
         },
         {
             "name": "wpackagist-theme/twentytwentyone",
-            "version": "2.7",
+            "version": "2.8",
             "source": {
                 "type": "svn",
                 "url": "https://themes.svn.wordpress.org/twentytwentyone/",
-                "reference": "2.7"
+                "reference": "2.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/twentytwentyone.2.7.zip"
+                "url": "https://downloads.wordpress.org/theme/twentytwentyone.2.8.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
